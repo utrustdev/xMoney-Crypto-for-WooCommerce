@@ -48,20 +48,9 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 	    $shipping_total = NULL;
 	    $tax_total = NULL;
 
+	    // Line items
 	    foreach( $order_items as $order_item ) {
-	        if ($order_item['type'] === 'fee') {
-	            $line_item = array(
-	            	'sku' => 'fee',
-	                'name' => $order_item->get_name(),
-	                'price' => $order_item['line_total'],
-	                'currency' => $order->get_currency(),
-	                'quantity' => $order_item->get_quantity()
-	            );
-			}
-			elseif ($order_item['type'] === 'tax') {
-				$tax_total = $order_item->get_tax_total();
-			}
-	        elseif($order_item['type'] === 'line_item') {
+	        if($order_item['type'] === 'line_item') {
 	            $product = $order_item->get_product();
 
 	            $line_item = array(
@@ -71,9 +60,18 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 	                'currency' => $order->get_currency(),
 	                'quantity' => $order_item->get_quantity()
 	            );
+			    $line_items[] = $line_item;
 	        }
-
-	        $line_items[] = $line_item;
+	        elseif ($order_item['type'] === 'fee') {
+	            $line_item = array(
+	            	'sku' => 'fee',
+	                'name' => $order_item->get_name(),
+	                'price' => $order_item['line_total'],
+	                'currency' => $order->get_currency(),
+	                'quantity' => $order_item->get_quantity()
+	            );
+			    $line_items[] = $line_item;
+			}
 	    }
 
 	    $discount_total = $order->get_total_discount();
@@ -87,8 +85,11 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 	        );
 	    }
 
+	    // Amount details (Tax and Shipping)
+	    $tax_total = $order->get_total_tax();
 	    $shipping_total = $order->get_shipping_total() + $order->get_shipping_tax();
-		
+
+		// Order info
 		$order_data  = array(
 			'reference' => (string) $order->get_id(),
 			'amount' => array(
@@ -108,6 +109,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 			'line_items' => $line_items
 		);
 
+		// Customer info
 		$customer = array(
 			'first_name' => $order->get_billing_first_name(),
 			'last_name' => $order->get_billing_last_name(),
