@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 0.0.3 = 
+* Add callback URL setting to help with WPML plugin compatibility issue
+
 = 0.0.2 =
 * Fix duplicated line_items issue
 

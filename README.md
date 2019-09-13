@@ -63,16 +63,23 @@ Note: It's important that you don't send your credentials to anyone otherwise th
 3. Choose the tab *Checkout*.
 4. Click on *UTRUST* on top.
 5. Add your `Client Id` and `Client Secret` and click Save.
+6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API. 
+
+### Known issues with other Plugins
+
+Some plugins that may create problems with the WooCommerce API: 
+
+* [WPML](https://wpml.org/) – If configurated to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in our Callback URL, e.g.: `https://<your-site>/?lang=en&wc-api=wc_utrust`.
 
 ## Frequently Asked Questions
 
-### Does this support both live mode and sandbox mode for testing?
+### Does this support both live mode and test mode for testing?
 
-Yes, it does - live and sandbox mode is driven by the API keys you use. They are different in both environments. Live API keys shouldn't work on Sandbox environment and vice-versa.
+Yes, it does - live and test mode is driven by the API keys you use. They are different in both environments. Live API keys shouldn't work on test environment and vice-versa.
 
 ### What happens if I cancel the Order manually?
 
-We are working on it. Our API is not ready yet for merchant manual changes. If you need to change the Order status, change it and contact us at support@utrust.com so we can change it in our system as well and refund the buyer.
+We are working on it. Our API is not ready yet for merchant manual changes. If you need to change the Order status, change it in WooCommerce and then go to our Merchant Dashboard to start a refund.
 
 ## Features
 
@@ -85,7 +92,7 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 ### Planned for the future
 * Sends HTTP request to the UTRUST Merchant API when an Order status is updated manually
 * Errors handling class to improve errors logs
-* Compatibility with WooCommerce > 3.0
+* Compatibility with WooCommerce older than 3.0
 
 ## Screenshots
 

@@ -29,10 +29,11 @@ if( !class_exists( 'UT_Webhooks' ) ) {
 			// Validate it to make sure it is legit.
 			if ( $this->is_valid_request( $request_body ) ) {
 				$this->process_webhook( $request_body );
+				WC_Utrust_Logger::log( 'Incoming webhook VALID signature: ' . print_r( $request_body, true ) );
 				status_header( 200 );
 				exit;
 			} else {
-				WC_Utrust_Logger::log( 'Incoming webhook failed signature validation: ' . print_r( $request_body, true ) );
+				WC_Utrust_Logger::log( 'Incoming webhook INVALID signature: ' . print_r( $request_body, true ) );
 				status_header( 400 );
 				exit;
 			}
@@ -93,6 +94,10 @@ if( !class_exists( 'UT_Webhooks' ) ) {
 				WC_Utrust_Logger::log( 'Could not find order via source ID: ' . $notification->resource->reference );
 				return;
 			} else {
+
+				if ( 'cancelled' === $order->get_status()) {
+					return;
+				}
 
 				$payment_id = isset( $_GET['payment_id'] ) ? 'Payment ID ' . $_GET['payment_id'] : '';
 

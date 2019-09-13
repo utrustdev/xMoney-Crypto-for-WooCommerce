@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_UTRUST_API extends WC_UTRUST_API_Base {
 
+	private $callback_url  = '';
 	private $client_id 	   = '';
 	private $client_secret = '';
 	private $request_token = '';
@@ -19,6 +20,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 
 		$utrust_settings = get_option( 'woocommerce_utrust_gateway_settings' );
 
+		$this->callback_url  = isset( $utrust_settings['callback_url'] )  ? $utrust_settings['callback_url']  : '';
 		$this->client_id     = isset( $utrust_settings['client_id'] ) 	  ? $utrust_settings['client_id'] 	  : '';
 		$this->client_secret = isset( $utrust_settings['client_secret'] ) ? $utrust_settings['client_secret'] : '';
 
@@ -88,7 +90,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 	    // Amount details (Tax and Shipping)
 	    $tax_total = $order->get_total_tax();
 	    $shipping_total = $order->get_shipping_total() + $order->get_shipping_tax();
-
+		
 		// Order info
 		$order_data  = array(
 			'reference' => (string) $order->get_id(),
@@ -104,7 +106,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base {
 			'return_urls' => array(
 				'return_url'  => $order->get_checkout_order_received_url(),
 				'cancel_url' => $order->get_cancel_order_url(),
-				'callback_url' => get_site_url() . '/?wc-api=wc_utrust'
+				'callback_url' => htmlspecialchars_decode ( $this->callback_url )
 			),
 			'line_items' => $line_items
 		);

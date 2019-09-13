@@ -74,7 +74,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway {
 				'desc_tip'    => true,
 				'options'     => array(
 					'live'    => __( 'Live', 'woocommerce-utrust' ),
-					'sandbox' => __( 'Sandbox', 'woocommerce-utrust' ),
+					'sandbox' => __( 'Test mode (Sandbox)', 'woocommerce-utrust' ),
 				),
 			),
 
@@ -92,6 +92,13 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway {
 				'description' => __( 'UTRUST Client secret.', 'woocommerce-utrust' ),
 				'default'     => __( '', 'woocommerce-utrust' ),
 				'desc_tip'    => true,
+			),
+
+			'callback_url' => array(
+				'title'       => __( 'Callback URL', 'woocommerce-utrust' ),
+				'type'        => 'text',
+				'description' => __( 'The default callback_url is ' . get_site_url() . '/?wc-api=wc_utrust<br />If you are using <strong>WPML plugin</strong>, you also need to pass the lang parameter. E.g.:<br />' . get_site_url() . '/?lang=en&wc-api=wc_utrust', 'woocommerce-utrust' ),
+				'default'     => __( get_site_url() . '/?wc-api=wc_utrust', 'woocommerce-utrust' ),
 			),
 		) );
 	}
