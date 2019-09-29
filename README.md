@@ -1,14 +1,8 @@
 # UTRUST for WooCommerce
-Contributors: utrustdev team
-Tags: utrust, cryptocurrency, crypto, payment request, woocommerce, simple, safe, easy, bitcoin, ethereum, token
-Requires at least: 4.6
-Tested up to: 5.0
-Stable tag: 4.3
-Requires PHP: 5.2.4
-License: GPLv3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Take cryptocurrency payments on your store using UTRUST.
+
+**Demo Store:** https://woocommerce.store.utrust.com/
 
 ## Description
 
@@ -97,3 +91,14 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 ## Screenshots
 
 *** Soon... ***
+
+## Contributing
+### Adding code to the repo
+If you have a fix or feature, submit a pull request through GitHub to the `devel` branch. The master branch is only for stable releases. Please make sure the new code follows the same style and conventions as already written code.
+
+### Developing
+With an online store, with the UTRUST plugin installed, you can access the code via FTP in `wp-content/plugins/utrust-for-woocommerce`. All the changes there should be reflected live in the online store. You should test things before opening a pull request on this repo.
+
+### Publishing
+If you are member of UTRUST devteam and want to publish a new version of the plugin follow [these instructions](https://github.com/utrustdev/plugin-woocommerce/wiki/Publishing).
+
