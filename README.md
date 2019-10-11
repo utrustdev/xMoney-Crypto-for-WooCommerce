@@ -1,25 +1,25 @@
-# UTRUST for WooCommerce
+# Utrust for WooCommerce
 
-Take cryptocurrency payments on your store using UTRUST.
+Take cryptocurrency payments on your store using Utrust.
 
 **Demo Store:** https://woocommerce.store.utrust.com/
 
 ## Description
 
-Accept Bitcoin, Ethereum, UTRUST Token and other cryptocurrencies directly on your store with the UTRUST payment gateway for WooCommerce.
-UTRUST is cryptocurrency agnostic and provides fiat settlements.
+Accept Bitcoin, Ethereum, Utrust Token and other cryptocurrencies directly on your store with the Utrust payment gateway for WooCommerce.
+Utrust is cryptocurrency agnostic and provides fiat settlements.
 
 ### Take Crypto Currency payments safely directly on your store
 
-The UTRUST plugin extends WooCommerce allowing you to take cryptocurrency payments directly on your store via UTRUST’s API.
+The Utrust plugin extends WooCommerce allowing you to take cryptocurrency payments directly on your store via Utrust’s API.
 
-### Why choose UTRUST?
+### Why choose Utrust?
 
-UTRUST has no setup fees, no monthly fees, no hidden costs: you only get charged when you earn money! Your earnings are on your UTRUST account for withdrawal.
+Utrust has no setup fees, no monthly fees, no hidden costs: you only get charged when you earn money! Your earnings are on your Utrust account for withdrawal.
 
 ## Requirements
 
-* UTRUST Merchant account
+* Utrust Merchant account
 * Online store in Wordpress with WooCommerce plugin
 
 ## Installation and Updates
@@ -40,9 +40,9 @@ You should get emails from us informing that a new release is out. Nevertheless,
 
 ## Setup and configuration
 
-### On UTRUST side
+### On Utrust side
 
-1. Go to [UTRUST merchant dashboard](https://merchants.utrust.com).
+1. Go to [Utrust merchant dashboard](https://merchants.utrust.com).
 2. Log in or sign up if you didn't yet.
 3. On the left sidebar choose *Organization*.
 4. Click the button *Generate Credentials*.
@@ -55,7 +55,7 @@ Note: It's important that you don't send your credentials to anyone otherwise th
 1. Go to your online store admin dashboard (it should be something like https://your-store-name.com/wp-admin).
 2. Navigate to *WooCommerce* > *Settings*.
 3. Choose the tab *Checkout*.
-4. Click on *UTRUST* on top.
+4. Click on *Utrust* on top.
 5. Add your `Client Id` and `Client Secret` and click Save.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API. 
 
@@ -78,27 +78,23 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 ## Features
 
 ### Current
-* Creates Order and redirects to UTRUST payment widget
+* Creates Order and redirects to Utrust payment widget
 * Receives and handles webhook payment received
 * Receives and handles webhook payment cancelled
 * Saves logs on Admin Dashboard -> WooCommerce -> Status -> Logs
 
 ### Planned for the future
-* Sends HTTP request to the UTRUST Merchant API when an Order status is updated manually
+* Sends HTTP request to the Utrust Merchant API when an Order status is updated manually
 * Errors handling class to improve errors logs
 * Compatibility with WooCommerce older than 3.0
 
-## Screenshots
-
-*** Soon... ***
-
 ## Contributing
 ### Adding code to the repo
-If you have a fix or feature, submit a pull request through GitHub to the `devel` branch. The master branch is only for stable releases. Please make sure the new code follows the same style and conventions as already written code.
+If you have a fix or feature, submit a pull request through GitHub to the `dev` branch. The master branch is only for stable releases. Please make sure the new code follows the same style and conventions as already written code.
 
 ### Developing
-With an online store, with the UTRUST plugin installed, you can access the code via FTP in `wp-content/plugins/utrust-for-woocommerce`. All the changes there should be reflected live in the online store. You should test things before opening a pull request on this repo.
+With an online store, with the Utrust plugin installed, you can access the code via FTP in `wp-content/plugins/utrust-for-woocommerce`. All the changes there should be reflected live in the online store. You should test things before opening a pull request on this repo.
 
 ### Publishing
-If you are member of UTRUST devteam and want to publish a new version of the plugin follow [these instructions](https://github.com/utrustdev/plugin-woocommerce/wiki/Publishing).
+If you are member of Utrust devteam and want to publish a new version of the plugin follow [these instructions](https://github.com/utrustdev/plugin-woocommerce/wiki/Publishing).
 
