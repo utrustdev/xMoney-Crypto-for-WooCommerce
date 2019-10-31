@@ -155,7 +155,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway {
 			<p class="form-row form-row-wide">
 				<?php echo esc_attr( $this->description );?>
 				<br>
-				<?php echo '<img src="' . UT_PLUGIN_URL . '/assets/images/checkout_image.png" width="250px" alt="UTRUST logo" />';?>
+				<?php echo '<img src="' . UT_PLUGIN_URL . 'assets/images/checkout_image.png" width="250px" alt="UTRUST logo" />';?>
 			</p>
 			<div class="clear"></div>
 		</fieldset> <?php
