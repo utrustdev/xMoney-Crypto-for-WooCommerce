@@ -86,7 +86,7 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 
 You can create [issues](https://github.com/utrustdev/utrust-for-woocommerce/issues) on our repository. In case of specific problems with your account, please contact support@utrust.com.
 
-## Contributing
+## Contribute
 
 We commit all our new features directly into our GitHub repository. But you can also request or suggest new features or code changes yourself!
 
@@ -99,6 +99,11 @@ Check the Utrust logs on the `Admin Dashboard → WooCommerce → Status → Log
 ### Adding code to the repo
 
 If you have a fix or a feature, submit a pull-request through GitHub against `master` branch. Please make sure the new code follows the same style and conventions as already written code.
+
+### Contributors
+
+- The first release of this plugin was written by a third-party contractor: [HelloDev](https://github.com/hellodevapps)
+- Utrust Dev team
 
 ## Publishing
 
