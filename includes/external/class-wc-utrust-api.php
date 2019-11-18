@@ -29,7 +29,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
     public function create_order($order)
     {
 
-        $api = 'stores/orders';
+        $endpoint = 'stores/orders';
         $line_items = array();
         $order_items = $order->get_items(array('line_item', 'fee', 'tax'));
         $shipping_total = null;
@@ -96,7 +96,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
         );
 
         // Customer info
-        $customer = array(
+        $customer_data = array(
             'first_name' => $order->get_billing_first_name(),
             'last_name' => $order->get_billing_last_name(),
             'email' => $order->get_billing_email(),
@@ -108,20 +108,20 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
             'country' => $order->get_billing_country(),
         );
 
-        $token = $this->api_key;
+        $api_key = $this->api_key;
 
         $request = array(
             'data' => array(
                 'type' => 'orders',
                 'attributes' => array(
                     'order' => $order_data,
-                    'customer' => $customer,
+                    'customer' => $customer_data,
                 ),
             ),
         );
 
         $header = array("Authorization: Bearer $api_key", "Content-Type: application/json");
-        $response = $this->add_order($request, $api, $header);
+        $response = $this->add_order($request, $endpoint, $header);
 
         return json_decode($response);
     }

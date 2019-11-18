@@ -4,7 +4,7 @@
 Plugin Name: Utrust for WooCommerce
 Description: Take cryptocurrency payments in your store using Utrust.
 Author: Utrust dev team
-Version: 0.0.3
+Version: 0.0.4
 Text Domain: woocommerce-gateway-utrust
 Author URI: https://utrust.com
 License: GPL-3.0
