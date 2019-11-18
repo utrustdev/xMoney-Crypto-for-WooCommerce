@@ -12,9 +12,8 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
 {
 
     private $callback_url = '';
-    private $client_id = '';
-    private $client_secret = '';
-    private $request_token = '';
+    private $api_key = '';
+    private $webhook_secret = '';
 
     public function __construct()
     {
@@ -23,25 +22,8 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
         $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
 
         $this->callback_url = isset($utrust_settings['callback_url']) ? $utrust_settings['callback_url'] : '';
-        $this->client_id = isset($utrust_settings['client_id']) ? $utrust_settings['client_id'] : '';
-        $this->client_secret = isset($utrust_settings['client_secret']) ? $utrust_settings['client_secret'] : '';
-
-        $this->authenticate();
-    }
-
-    public function authenticate()
-    {
-
-        $api = 'stores/session';
-        $request = array('data' => array('type' => 'session', 'attributes' => array('client_id' => $this->client_id, 'client_secret' => $this->client_secret)));
-        $response = $this->post_request($request, $api, array());
-
-        if (isset($response->data->attributes->token)) {
-            $this->request_token = $response->data->attributes->token;
-            return true;
-        } else {
-            return false;
-        }
+        $this->api_key = isset($utrust_settings['api_key']) ? $utrust_settings['api_key'] : '';
+        $this->webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
     }
 
     public function create_order($order)
@@ -126,7 +108,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
             'country' => $order->get_billing_country(),
         );
 
-        $token = $this->request_token;
+        $token = $this->api_key;
 
         $request = array(
             'data' => array(
@@ -138,7 +120,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
             ),
         );
 
-        $header = array("Authorization: Bearer $token", "Content-Type: application/json");
+        $header = array("Authorization: Bearer $api_key", "Content-Type: application/json");
         $response = $this->add_order($request, $api, $header);
 
         return json_decode($response);

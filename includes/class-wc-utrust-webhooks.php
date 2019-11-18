@@ -151,7 +151,7 @@ if (!class_exists('UT_Webhooks')) {
             $notification = json_decode($request_body);
             // get secret from Utrust settings
             $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
-            $client_secret = isset($utrust_settings['client_secret']) ? $utrust_settings['client_secret'] : '';
+            $webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
 
             // get signature from response
             $signature_from_response = $notification->signature;
@@ -177,7 +177,7 @@ if (!class_exists('UT_Webhooks')) {
             $concated_payload = join('', $concated_payload);
 
             // sign string with HMAC SHA256
-            $signed_payload = hash_hmac('sha256', $concated_payload, $client_secret);
+            $signed_payload = hash_hmac('sha256', $concated_payload, $webhook_secret);
 
             // check if signature is correct
             if ($signature_from_response === $signed_payload) {

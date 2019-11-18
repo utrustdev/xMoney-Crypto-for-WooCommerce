@@ -80,16 +80,16 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 ),
             ),
 
-            'client_id' => array(
-                'title' => __('Client ID', 'woocommerce-utrust'),
+            'api_key' => array(
+                'title' => __('API Key', 'woocommerce-utrust'),
                 'type' => 'text',
                 'description' => __('Utrust API Key', 'woocommerce-utrust'),
                 'default' => __('', 'woocommerce-utrust'),
                 'desc_tip' => true,
             ),
 
-            'client_secret' => array(
-                'title' => __('Client Secret', 'woocommerce-utrust'),
+            'webhook_sex' => array(
+                'title' => __('Webhook Secret', 'woocommerce-utrust'),
                 'type' => 'password',
                 'description' => __('Utrust Webhook secret', 'woocommerce-utrust'),
                 'default' => __('', 'woocommerce-utrust'),
