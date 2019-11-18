@@ -80,7 +80,7 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 
 - Sends HTTP request to the Utrust Merchant API when an Order status is updated manually
 - Errors handling class to improve errors logs
-- Compatibility with WooCommerce older than 3.0
+- Compatibility with WooCommerce earlier than 3.0
 
 ## Support
 
@@ -88,6 +88,7 @@ You can create [issues](https://github.com/utrustdev/utrust-for-woocommerce/issu
 
 ## Contribute
 
+This plugin was initially written by a third-party contractor ([HelloDev](https://github.com/hellodevapps)), and is now maintained by the Utrust development team. We have now opened it to the world so that the community using this plugin may have the chance of shaping its development.
 We commit all our new features directly into our GitHub repository. But you can also request or suggest new features or code changes yourself!
 
 ### Developing
