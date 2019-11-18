@@ -38,7 +38,7 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 2. Log in or sign up if you didn't yet.
 3. On the left sidebar choose "Organization".
 4. Click the button "Generate Credentials".
-5. You will see now your `Client Id` and `Client Secret`, copy them – you will only be able to see the `Client Secret` once, after refreshing or changing page it will be no longer available to copy; if needed, you can always generate new credentials.
+5. You will see now your `Api Key` and `Webhook Secret`, copy them – you will only be able to see the `Webhook Secret` once, after refreshing or changing page it will be no longer available to copy; if needed, you can always generate new credentials.
 
 Note: It's important that you don't send your credentials to anyone otherwise they can use it to place orders _on your behalf_.
 
@@ -48,7 +48,7 @@ Note: It's important that you don't send your credentials to anyone otherwise th
 2. Navigate to "WooCommerce" > "Settings".
 3. Choose the tab "Payments" ("Checkout" for older versions).
 4. Click on "Utrust".
-5. Add your `Client Id` and `Client Secret` and click Save.
+5. Add your `Api Key` and `Webhook Secret` and click Save.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API.
 
 ### Known conflicts with other Plugins
