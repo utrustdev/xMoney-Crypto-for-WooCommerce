@@ -73,9 +73,13 @@ class WC_UTRUST_API_Base
         $response = curl_exec($curl);
         $err = curl_error($curl);
 
+        if (!empty($err)) {
+            WC_Utrust_Logger::log('cURL error: ' . print_r($err, true));
+        }
+
         curl_close($curl);
 
-        return $response;
+        return json_decode($response);
     }
 
     /**

@@ -123,6 +123,10 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
         $header = array("Authorization: Bearer $api_key", "Content-Type: application/json");
         $response = $this->add_order($request, $endpoint, $header);
 
-        return json_decode($response);
+        if (isset($response->errors)) {
+            WC_Utrust_Logger::log('API error: ' . print_r($response, true));
+        }
+
+        return $response;
     }
 }
