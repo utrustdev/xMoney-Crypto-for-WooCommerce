@@ -141,7 +141,6 @@ To publish a new version, simply follow [these instructions](https://github.com/
 
 ## License
 
-
 The Utrust for WooCommerce plugin is maintained with :heart: by the Utrust development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/utrust-for-woocommerce/blob/master/LICENSE) for further details.
 
 &copy; Utrust 2019
