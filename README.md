@@ -107,7 +107,7 @@ Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/
 
 If you're having specific problems with your account, then please contact support@utrust.com.
 
-In both cases, our team will be happy to help :heart:.
+In both cases, our team will be happy to help :purple_heart:.
 
 
 ## Contribute
