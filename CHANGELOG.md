@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta2 =
+
+- Test on latest WooCommerce release – v3.8.1
+
 = 1.0.0-beta1 =
 
 - Make the repo public
