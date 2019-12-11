@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
     exit(); // Exit if accessed directly
 }
 
+use Utrust\Webhook\Event;
+
 /**
  * Handles Utrust Webhooks
  */
@@ -26,17 +28,26 @@ if (!class_exists('UT_Webhooks')) {
                 return;
             }
 
+            // Get secret from Utrust settings
+            $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
+            $webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
+
             $request_body = file_get_contents('php://input');
             $request_headers = array_change_key_case($this->get_request_headers(), CASE_UPPER);
 
-            // Validate it to make sure it is legit.
-            if ($this->is_valid_request($request_body)) {
+            try {
+                $event = new Event($request_body);
+                // Validate it to make sure it is legit
+                $event->validateSignature($webhook_secret);
+
+                // Handle signature valid
                 $this->process_webhook($request_body);
                 WC_Utrust_Logger::log('Incoming webhook VALID signature: ' . print_r($request_body, true));
                 status_header(200);
                 exit;
-            } else {
-                WC_Utrust_Logger::log('Incoming webhook INVALID signature: ' . print_r($request_body, true));
+            } catch (\Exception $exception) {
+                // Handle signature invalid
+                WC_Utrust_Logger::log('Something went wrong! Exception: ' . $exception->getMessage() . '| Request body: ' . print_r($request_body, true));
                 status_header(400);
                 exit;
             }
@@ -83,7 +94,7 @@ if (!class_exists('UT_Webhooks')) {
 
                 $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . $_GET['payment_id'] : '';
 
-                $note = __('UTRUST payment received.', 'hd-woocommerce-utrust') . " $payment_id";
+                $note = __('Utrust payment received.', 'hd-woocommerce-utrust') . " $payment_id";
                 $order->set_status('wc-processing', $note);
                 $order->save();
             }
@@ -107,7 +118,7 @@ if (!class_exists('UT_Webhooks')) {
 
                 $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . $_GET['payment_id'] : '';
 
-                $note = __('UTRUST payment cancelled.', 'hd-woocommerce-utrust') . " $payment_id";
+                $note = __('Utrust payment cancelled.', 'hd-woocommerce-utrust') . " $payment_id";
                 $order->set_status('wc-cancelled', $note);
                 $order->save();
             }
@@ -136,56 +147,6 @@ if (!class_exists('UT_Webhooks')) {
             } else {
                 return getallheaders();
             }
-        }
-
-        /**
-         * Verify the incoming webhook notification to make sure it is legit.
-         *
-         * @since 4.0.0
-         * @version 4.0.0
-         * @param string $request_body The request_body payload from Utrust.
-         * @return bool
-         */
-        public function is_valid_request($request_body)
-        {
-            $notification = json_decode($request_body);
-            // get secret from Utrust settings
-            $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
-            $webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
-
-            // get signature from response
-            $signature_from_response = $notification->signature;
-
-            // removes signature from response
-            unset($notification->signature);
-
-            // sorts response alphabetically by key
-            ksort($notification);
-
-            // concat keys and values into one string
-            $concated_payload = array();
-            foreach ($notification as $key => $value) {
-                if (is_object($value)) {
-                    foreach ($value as $k => $v) {
-                        $concated_payload[] = $key;
-                        $concated_payload[] = $k . $v;
-                    }
-                } else {
-                    $concated_payload[] = $key . $value;
-                }
-            }
-            $concated_payload = join('', $concated_payload);
-
-            // sign string with HMAC SHA256
-            $signed_payload = hash_hmac('sha256', $concated_payload, $webhook_secret);
-
-            // check if signature is correct
-            if ($signature_from_response === $signed_payload) {
-                return true;
-            }
-
-            WC_Utrust_Logger::log("Wrong signature generated: "+$signature_generated);
-            return false;
         }
     }
 }

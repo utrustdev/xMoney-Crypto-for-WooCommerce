@@ -8,6 +8,10 @@ if (!defined('ABSPATH')) {
  *
  * Sets Interfaces to Communicates with Utrust API.
  */
+
+use Utrust\ApiClient;
+use Utrust\Validator;
+
 class WC_UTRUST_API extends WC_UTRUST_API_Base
 {
 
@@ -21,19 +25,17 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
 
         $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
 
-        $this->callback_url = isset($utrust_settings['callback_url']) ? $utrust_settings['callback_url'] : '';
         $this->api_key = isset($utrust_settings['api_key']) ? $utrust_settings['api_key'] : '';
+        $this->callback_url = isset($utrust_settings['callback_url']) ? $utrust_settings['callback_url'] : '';
+        $this->environment = isset($utrust_settings['environment']) ? $utrust_settings['environment'] : '';
         $this->webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
     }
 
     public function create_order($order)
     {
-
-        $endpoint = 'stores/orders';
+        // Line items
         $line_items = array();
         $order_items = $order->get_items(array('line_item', 'fee', 'tax'));
-
-        // Line items
         foreach ($order_items as $order_item) {
             if ($order_item['type'] === 'line_item') {
                 $product = $order_item->get_product();
@@ -103,23 +105,24 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
             'country' => $order->get_billing_country(),
         );
 
-        $api_key = $this->api_key;
+        try {
+            // Validate data
+            $order_is_valid = Validator::order($order_data);
+            $customer_is_valid = Validator::customer($customer_data);
 
-        $request = array(
-            'data' => array(
-                'type' => 'orders',
-                'attributes' => array(
-                    'order' => $order_data,
-                    'customer' => $customer_data,
-                ),
-            ),
-        );
+            // Make the API request
+            if ($order_is_valid == true && $customer_is_valid == true) {
+                // Get API Key and Environment
+                $api_key = $this->api_key;
+                $environment = $this->environment;
 
-        $header = array("Authorization: Bearer $api_key", "Content-Type: application/json");
-        $response = $this->add_order($request, $endpoint, $header);
+                // Init Utrust API
+                $utrustApi = new ApiClient($api_key, $environment);
 
-        if (isset($response->errors)) {
-            WC_Utrust_Logger::log('API error: ' . print_r($response, true));
+                $response = $utrustApi->createOrder($order_data, $customer_data);
+            }
+        } catch (\Exception $e) {
+            WC_Utrust_Logger::log('Something went wrong: ' . $e->getMessage());
         }
 
         return $response;

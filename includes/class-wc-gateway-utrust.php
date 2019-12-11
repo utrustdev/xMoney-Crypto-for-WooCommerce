@@ -75,7 +75,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'default' => 'live',
                 'desc_tip' => true,
                 'options' => array(
-                    'live' => __('Live', 'woocommerce-utrust'),
+                    'production' => __('Live', 'woocommerce-utrust'),
                     'sandbox' => __('Test mode (Sandbox)', 'woocommerce-utrust'),
                 ),
             ),
@@ -171,8 +171,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         $api = new WC_UTRUST_API();
         $result = $api->create_order($order);
 
-        if (isset($result->data->attributes->redirect_url)) {
-            return $result->data->attributes->redirect_url;
+        if (isset($result->attributes->redirect_url)) {
+            return $result->attributes->redirect_url;
         }
 
         return false;

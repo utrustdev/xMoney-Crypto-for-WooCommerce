@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta4 =
+
+- Adds Utrust PHP lib
+
 = 1.0.0-beta3 =
 
 - Fix Amount details showing zero values
