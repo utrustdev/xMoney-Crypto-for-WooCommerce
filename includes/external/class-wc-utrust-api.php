@@ -32,8 +32,6 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
         $endpoint = 'stores/orders';
         $line_items = array();
         $order_items = $order->get_items(array('line_item', 'fee', 'tax'));
-        $shipping_total = null;
-        $tax_total = null;
 
         // Line items
         foreach ($order_items as $order_item) {
@@ -43,7 +41,7 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
                 $line_item = array(
                     'sku' => $product->get_sku(),
                     'name' => $order_item->get_name(),
-                    'price' => $order->get_item_subtotal($order_item, false),
+                    'price' => strval($order->get_item_subtotal($order_item, false)),
                     'currency' => $order->get_currency(),
                     'quantity' => $order_item->get_quantity(),
                 );
@@ -60,20 +58,16 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
             }
         }
 
-        $discount_total = $order->get_total_discount();
-        if ($discount_total > 0) {
-            $line_items[] = array(
-                'sku' => 'discount',
-                'name' => 'Discount',
-                'price' => '-' . strval($discount_total),
-                'currency' => $order->get_currency(),
-                'quantity' => 1,
-            );
-        }
-
-        // Amount details (Tax and Shipping)
+        // Amount details (Subtotal, Taxes, Shipping costs and Discounts)
+        $subtotal = $order->get_subtotal();
         $tax_total = $order->get_total_tax();
         $shipping_total = $order->get_shipping_total() + $order->get_shipping_tax();
+        $discount_total = $order->get_total_discount();
+
+        $subtotal_str = ($subtotal > 0.0) ? strval($subtotal) : null;
+        $tax_total_str = ($tax_total > 0.0) ? strval($tax_total) : null;
+        $shipping_total_str = ($shipping_total > 0.0) ? strval($shipping_total) : null;
+        $discount_total_str = ($discount_total > 0.0) ? strval($discount_total) : null;
 
         // Order info
         $order_data = array(
@@ -82,9 +76,10 @@ class WC_UTRUST_API extends WC_UTRUST_API_Base
                 'total' => $order->get_total(),
                 'currency' => $order->get_currency(),
                 'details' => array(
-                    'subtotal' => strval($order->get_subtotal()),
-                    'shipping' => strval($shipping_total),
-                    'tax' => strval($tax_total),
+                    'subtotal' => $subtotal_str,
+                    'tax' => $tax_total_str,
+                    'shipping' => $shipping_total_str,
+                    'discount' => $discount_total_str,
                 ),
             ),
             'return_urls' => array(
