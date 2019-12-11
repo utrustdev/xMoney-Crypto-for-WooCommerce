@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta3 =
+
+- Fix Amount details showing zero values
+
 = 1.0.0-beta2 =
 
 - Test on latest WooCommerce release – v3.8.1
