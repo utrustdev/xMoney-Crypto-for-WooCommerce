@@ -1,5 +1,10 @@
 **_ Changelog _**
 
+= 1.0.0-beta5 =
+
+- Adds FAILED event to webhooks
+- Removes unused assets
+
 = 1.0.0-beta4 =
 
 - Adds Utrust PHP lib
