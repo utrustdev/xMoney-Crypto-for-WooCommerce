@@ -1,0 +1,51 @@
+name: Create a new Release on GitHub
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0.0, v1.2.3-beta4
+
+jobs:
+  build-and-create:
+    runs-on: ubuntu-latest
+    container:
+      image: composer:1.9
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Display PHP and Composer info
+        run: |
+          php -v
+          composer --version
+
+      - name: Install project dependencies
+        run: composer install
+
+      - name: Build zip with the code
+        run: |
+          zip -r utrust-for-woocommerce * -x .git .github .git composer.json composer.lock
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: true
+          prerelease: false
+
+      - name: Upload zip to Release Assets
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./utrust-for-woocommerce.zip
+          asset_name: utrust-for-woocommerce.zip
+          asset_content_type: application/zip
