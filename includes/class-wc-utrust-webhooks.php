@@ -71,12 +71,6 @@ if (!class_exists('UT_Webhooks')) {
                 case 'ORDER.PAYMENT.CANCELLED':
                     $this->process_webhook_payment_cancelled($notification);
                     break;
-                case 'ORDER.PAYMENT.FAILED':
-                    $this->process_webhook_payment_failed($notification);
-                    break;
-                default:
-                    $this->process_webhook_payment_failed($notification);
-                    break;
             }
         }
 
@@ -124,30 +118,6 @@ if (!class_exists('UT_Webhooks')) {
 
                 $note = __('Utrust payment cancelled.', 'hd-woocommerce-utrust') . " $payment_id";
                 $order->set_status('wc-cancelled', $note);
-                $order->save();
-            }
-        }
-
-        // Process payment webhook failed
-        public function process_webhook_payment_failed($notification)
-        {
-            $order_id = isset($notification->resource->reference) ? $notification->resource->reference : 0;
-
-            $order = wc_get_order($order_id);
-
-            if (!$order) {
-                WC_Utrust_Logger::log('Could not find order via source ID: ' . $notification->resource->reference);
-                return;
-            } else {
-
-                if ('failed' === $order->get_status()) {
-                    return;
-                }
-
-                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . $_GET['payment_id'] : '';
-
-                $note = __('Utrust payment failed.', 'hd-woocommerce-utrust') . " $payment_id";
-                $order->set_status('wc-failed', $note);
                 $order->save();
             }
         }
