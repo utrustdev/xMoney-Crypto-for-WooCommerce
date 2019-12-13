@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta6 =
+
+- Removes FAILED event to webhooks as it doesn't exist
+
 = 1.0.0-beta5 =
 
 - Adds FAILED event to webhooks
