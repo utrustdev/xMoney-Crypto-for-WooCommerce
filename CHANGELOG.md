@@ -1,5 +1,11 @@
 **_ Changelog _**
 
+= 1.0.0-beta7 =
+
+- Simplifies Logger class
+- Remove class-wc-utrust-api-base.php (replaced by Utrust PHP lib)
+- Add warning on README about the need of SKUs on all products
+
 = 1.0.0-beta6 =
 
 - Removes FAILED event to webhooks as it doesn't exist
