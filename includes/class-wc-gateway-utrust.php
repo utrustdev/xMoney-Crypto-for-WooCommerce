@@ -88,7 +88,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'desc_tip' => true,
             ),
 
-            'webhook_sex' => array(
+            'webhook_secret' => array(
                 'title' => __('Webhook Secret', 'woocommerce-utrust'),
                 'type' => 'password',
                 'description' => __('Utrust Webhook secret', 'woocommerce-utrust'),
@@ -167,7 +167,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
     public function get_utrust_redirect($order)
     {
-
         $api = new WC_UTRUST_API();
         $result = $api->create_order($order);
 
@@ -186,7 +185,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function process_payment($order_id)
     {
-
         $order = wc_get_order($order_id);
 
         $redirect_url = $this->get_utrust_redirect($order);

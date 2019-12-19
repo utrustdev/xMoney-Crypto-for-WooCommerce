@@ -12,17 +12,14 @@ if (!defined('ABSPATH')) {
 use Utrust\ApiClient;
 use Utrust\Validator;
 
-class WC_UTRUST_API extends WC_UTRUST_API_Base
+class WC_UTRUST_API
 {
-
     private $callback_url = '';
     private $api_key = '';
     private $webhook_secret = '';
 
     public function __construct()
     {
-        parent::__construct();
-
         $utrust_settings = get_option('woocommerce_utrust_gateway_settings');
 
         $this->api_key = isset($utrust_settings['api_key']) ? $utrust_settings['api_key'] : '';

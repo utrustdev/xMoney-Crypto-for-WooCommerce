@@ -13,6 +13,7 @@ Find out more about Utrust at [utrust.com](https://utrust.com).
 
 - Utrust Merchant account
 - Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
+- `SKU`s in all the products
 
 ## Install and Update
 
@@ -52,6 +53,8 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 4. Click on _Utrust_.
 5. Add your `Api Key` and `Webhook Secret` and click _Save_.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API.
+
+   :warning: Make sure all your products have the `SKU` attribute, otherwise the buyer will get an error on checkout.
 
 ### Known conflicts with other Plugins
 
@@ -115,7 +118,7 @@ Alternatively, you can also do it in a WooCommerce online store that you have fo
 
 Once the plugin is installed in your store, the source code should be in `wp-content/plugins/utrust-for-woocommerce`.
 All the changes there will be reflected live in the store.
-Check the Utrust logs in the Admin Dashboard, in _WooCommerce > Status > Logs_, and search for the file `utrust-<random_hash>.log`. If something went wrong in this plugin, the error message should be in there.
+Check the Utrust logs in the Admin Dashboard, in _WooCommerce > Status > Logs_, and search for the file `utrust-for-woocommerce<random_hash>.log`. If something went wrong in this plugin, the error message should be in there.
 
 ## Publishing
 

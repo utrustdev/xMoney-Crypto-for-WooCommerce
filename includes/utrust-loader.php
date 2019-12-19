@@ -45,7 +45,6 @@ if( !class_exists( 'UT_Start' ) ) {
 			require_once( UT_PLUGIN_PATH . '/includes/class-wc-gateway-utrust.php' );
 			require_once( UT_PLUGIN_PATH . '/includes/class-wc-utrust-logger.php' );
 			require_once( UT_PLUGIN_PATH . '/includes/class-wc-utrust-webhooks.php' );
-			require_once( UT_PLUGIN_PATH . '/includes/external/class-wc-utrust-api-base.php' );
 			require_once( UT_PLUGIN_PATH . '/includes/external/class-wc-utrust-api.php' );
 
 			// Handle utrust webhooks
