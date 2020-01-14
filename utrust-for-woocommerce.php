@@ -31,3 +31,11 @@ define('UT_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WC_UTRUST_VERSION', 1.0);
 
 UT_Start::get_instance();
+
+// Adds plugin action links
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_actions_links');
+function add_plugin_actions_links($links)
+{
+    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
+    return array_merge($settings_link, $links);
+}
