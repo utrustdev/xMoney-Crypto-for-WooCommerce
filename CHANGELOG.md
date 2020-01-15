@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta8 =
+
+- Add Settings link on Plugins page
+
 = 1.0.0-beta7 =
 
 - Simplifies Logger class
