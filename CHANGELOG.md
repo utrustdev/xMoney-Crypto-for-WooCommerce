@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta9 =
+
+- Add icon
+
 = 1.0.0-beta8 =
 
 - Add Settings link on Plugins page
