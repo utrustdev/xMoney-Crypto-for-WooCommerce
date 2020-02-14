@@ -62,8 +62,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
             'description' => array(
                 'title' => __('Description', 'woocommerce-utrust'),
                 'type' => 'textarea',
-                'description' => __('Payment method description that the customer will see on your checkout.', 'woocommerce-utrust'),
-                'default' => __('Pay with Cryptocurrencies', 'woocommerce-utrust'),
+                'description' => __('Payment method instructions that the customer will see on your checkout.', 'woocommerce-utrust'),
+                'default' => __('You will be redirected to the Utrust Payment widget where you can choose the cryptocurrency and pay.', 'woocommerce-utrust'),
                 'desc_tip' => true,
             ),
 
@@ -152,21 +152,38 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         return apply_filters('woocommerce_get_return_url', $return_url, $order);
     }
 
-    // Payment fields
+    /**
+     * Get icon.
+     * @return string
+     */
+    public function get_icon()
+    {
+        $icon_html = '<img src="' . UT_PLUGIN_URL . 'assets/images/checkout_image.png' . '" alt="' . $this->title . '" style="height: 24px; padding-left: 6px;"/>';
+
+        return apply_filters('woocommerce_gateway_icon', $icon_html, $this->id);
+    }
+
+    /**
+     * Payment fields.
+     * @return string
+     */
     public function payment_fields()
     {?>
 		<fieldset style="background: transparent;">
 			<p class="form-row form-row-wide">
 				<?php echo esc_attr($this->description); ?>
-				<br>
-				<?php echo '<img src="' . UT_PLUGIN_URL . 'assets/images/checkout_image.png" width="250px" alt="Utrust logo" />'; ?>
 			</p>
 			<div class="clear"></div>
 		</fieldset> <?php
 }
 
+    /**
+     * Get Utrust redirect to payment widget Url.
+     * @return string
+     */
     public function get_utrust_redirect($order)
     {
+
         $api = new WC_UTRUST_API();
         $result = $api->create_order($order);
 
