@@ -10,7 +10,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function __construct()
     {
-
         $this->id = 'utrust_gateway';
         $this->icon = apply_filters('woocommerce_offline_icon', '');
         $this->has_fields = false;
@@ -41,7 +40,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-
         $this->form_fields = apply_filters('wc_utrust_form_fields', array(
 
             'enabled' => array(
@@ -125,7 +123,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function email_instructions($order, $sent_to_admin, $plain_text = false)
     {
-
         if ($this->instructions && !$sent_to_admin && $this->id === $order->payment_method && $order->has_status('wc-on-hold')) {
             echo wpautop(wptexturize($this->instructions)) . PHP_EOL;
         }
@@ -183,7 +180,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function get_utrust_redirect($order)
     {
-
         $api = new WC_UTRUST_API();
         $result = $api->create_order($order);
 
@@ -209,7 +205,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         if ($redirect_url) {
 
             // Mark as on-hold (we're awaiting the payment)
-            $order->update_status('wc-on-hold', __('On Hold', 'woocommerce'));
+            $order->update_status('wc-on-hold');
 
             // Reduce stock levels
             $order->reduce_order_stock();
@@ -219,7 +215,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
             $utrust_id = isset($url_array['uuid']) ? $url_array['uuid'] : '';
             if ($utrust_id) {
-                update_post_meta($order_id, '_utrust_order_id', $utrust_id);
+                update_post_meta($order_id, '_utrust_order_uuid', $utrust_id);
             }
 
             // Remove cart

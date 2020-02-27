@@ -90,10 +90,9 @@ if (!class_exists('UT_Webhooks')) {
                     return;
                 }
 
-                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . $_GET['payment_id'] : '';
+                $order->add_order_note(__('Utrust payment received.', 'hd-woocommerce-utrust'));
 
-                $note = __('Utrust payment received.', 'hd-woocommerce-utrust') . " $payment_id";
-                $order->set_status('wc-processing', $note);
+                $order->payment_complete();
                 $order->save();
             }
         }
