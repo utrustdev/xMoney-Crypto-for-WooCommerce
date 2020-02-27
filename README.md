@@ -86,6 +86,7 @@ Yes, it does - choosing between live and test mode is driven by the API keys you
 - [x] Receive and handle webhook for received payment.
 - [x] Receive and handle webhook for cancelled payment.
 - [x] Save logs on the Wordpress admin dashboard on _WooCommerce > Status > Logs_.
+- [x] Support pre-orders paid upfront (it doesn't support charge on release date).
 - [ ] Sends HTTP request to the Utrust Merchant API when an Order status is updated manually.
 - [ ] Errors handling class to improve errors logs.
 - [ ] Compatibility with WooCommerce earlier than 3.0.
