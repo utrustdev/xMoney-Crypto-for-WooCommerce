@@ -11,6 +11,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
     public function __construct()
     {
         $this->id = 'utrust_gateway';
+        $this->supports('products');
+
         $this->icon = apply_filters('woocommerce_offline_icon', '');
         $this->has_fields = false;
         $this->method_title = __('Utrust', 'woocommerce-utrust');
@@ -40,6 +42,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
+
         $this->form_fields = apply_filters('wc_utrust_form_fields', array(
 
             'enabled' => array(
@@ -69,12 +72,12 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'title' => __('Environment', 'woocommerce-utrust'),
                 'type' => 'select',
                 'class' => 'wc-enhanced-select',
-                'description' => __('This setting specifies whether you will process live transactions, or whether you will process simulated transactions using the Utrust Sandbox.', 'woocommerce-utrust'),
+                'description' => __('This setting specifies whether you will process live transactions, or whether you will process simulated transactions using the Utrust sandbox.', 'woocommerce-utrust'),
                 'default' => 'live',
                 'desc_tip' => true,
                 'options' => array(
-                    'production' => __('Live', 'woocommerce-utrust'),
-                    'sandbox' => __('Test mode (Sandbox)', 'woocommerce-utrust'),
+                    'production' => __('Live (Production)', 'woocommerce-utrust'),
+                    'sandbox' => __('Test (Sandbox)', 'woocommerce-utrust'),
                 ),
             ),
 
@@ -92,6 +95,19 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'description' => __('Utrust Webhook secret', 'woocommerce-utrust'),
                 'default' => __('', 'woocommerce-utrust'),
                 'desc_tip' => true,
+            ),
+
+            'checkout_image' => array(
+                'title' => __('Checkout Image', 'woocommerce-utrust'),
+                'type' => 'select',
+                'class' => 'wc-enhanced-select',
+                'description' => __('This image will be displayed in the Checkout page.'),
+                'desc_tip' => true,
+                'default' => 'default',
+                'options' => array(
+                    'default' => __('Default (for light websites)', 'woocommerce-utrust'),
+                    'white' => __('White (for dark websites)', 'woocommerce-utrust'),
+                ),
             ),
 
             'callback_url' => array(
@@ -123,6 +139,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function email_instructions($order, $sent_to_admin, $plain_text = false)
     {
+
         if ($this->instructions && !$sent_to_admin && $this->id === $order->payment_method && $order->has_status('wc-on-hold')) {
             echo wpautop(wptexturize($this->instructions)) . PHP_EOL;
         }
@@ -155,7 +172,15 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function get_icon()
     {
-        $icon_html = '<img src="' . UT_PLUGIN_URL . 'assets/images/checkout_image.png' . '" alt="' . $this->title . '" style="height: 24px; padding-left: 6px;"/>';
+        $filename = "";
+
+        if ($this->get_option('checkout_image') === 'default') {
+            $filename = 'checkout_image.png';
+        } else {
+            $filename = 'checkout_image_white.png';
+        }
+
+        $icon_html = '<img src="' . UT_PLUGIN_URL . 'assets/images/' . $filename . '" alt="' . $this->title . '" style="height: 24px; padding-left: 6px;"/>';
 
         return apply_filters('woocommerce_gateway_icon', $icon_html, $this->id);
     }
@@ -180,6 +205,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function get_utrust_redirect($order)
     {
+
         $api = new WC_UTRUST_API();
         $result = $api->create_order($order);
 
