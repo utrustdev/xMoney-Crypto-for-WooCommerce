@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta10 =
+
+- Add option to choose the checkout image (light or dark)
+
 = 1.0.0-beta9 =
 
 - Add icon
