@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0-beta11 =
+
+- Set compatibility to the most recent Woocommerce version (4.0.1)
+
 = 1.0.0-beta10 =
 
 - Add option to choose the checkout image (light or dark)
