@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.0 =
+
+- Release of stable version
+
 = 1.0.0-beta11 =
 
 - Set compatibility to the most recent Woocommerce version (4.0.1)
