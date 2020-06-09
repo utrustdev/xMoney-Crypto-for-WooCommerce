@@ -37,7 +37,7 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 
 1. Go to the [Utrust Merchant dashboard](https://merchants.utrust.com).
 2. Log in, or sign up if you haven't yet.
-3. In the sidebar on the left choose _Organization_.
+3. In the sidebar on the left choose _Store_.
 4. Click the button _Generate Credentials_.
 5. You will now see your `Api Key` and `Webhook Secret`, save them somewhere safe temporarily.
 

@@ -1,5 +1,10 @@
 **_ Changelog _**
 
+= 1.0.1 =
+
+- Update compatibility to WooCommerce 4.1.1
+- Add readme.txt
+
 = 1.0.0 =
 
 - Release of stable version

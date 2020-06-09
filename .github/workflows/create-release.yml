@@ -1,4 +1,4 @@
-name: Create a new Release on GitHub
+name: Create a new Release on GitHub and on Wordpress
 
 on:
   push:
@@ -24,11 +24,17 @@ jobs:
       - name: Install project dependencies
         run: composer install
 
+      - name: WordPress Plugin Deploy to Directory
+        uses: 10up/action-wordpress-plugin-deploy@master
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+
       - name: Build zip with the code
         run: |
-          zip -r utrust-for-woocommerce * -x .git .github .git composer.json composer.lock
+          zip -r utrust-for-woocommerce * -x .git .github composer.json composer.lock
 
-      - name: Create Release
+      - name: Create Release on GitHub
         id: create_release
         uses: actions/create-release@v1.0.0
         env:
@@ -39,7 +45,7 @@ jobs:
           draft: true
           prerelease: false
 
-      - name: Upload zip to Release Assets
+      - name: Upload zip to GitHub release assets
         id: upload_release_asset
         uses: actions/upload-release-asset@v1.0.1
         env:
