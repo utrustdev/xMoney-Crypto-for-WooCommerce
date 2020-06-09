@@ -1,5 +1,11 @@
 **_ Changelog _**
 
+= 1.0.2 =
+
+- Update compatibility to WooCommerce 4.2
+- Update readme.txt
+- Test release flow
+
 = 1.0.1 =
 
 - Update compatibility to WooCommerce 4.1.1
