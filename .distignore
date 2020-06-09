@@ -1,5 +1,6 @@
 /.wordpress-org
 /.github
+/.git
 
 .distignore
 .gitignore

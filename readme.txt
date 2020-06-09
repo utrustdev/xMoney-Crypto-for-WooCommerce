@@ -58,7 +58,7 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 5. Add your `Api Key` and `Webhook Secret` and click _Save_.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API.
 
-   :warning: Make sure all your products have the `SKU` attribute, otherwise the buyer will get an error on checkout.
+   Warning: Make sure all your products have the `SKU` attribute, otherwise the buyer will get an error on checkout.
 
 = Known conflicts with other Plugins =
 
@@ -84,7 +84,7 @@ We are working on it. Our API is not ready yet for merchant manual changes. If y
 
 == Features ==
 
-:sparkles: These are the features already implemented and planned for the Utrust for WooCommerce plugin:
+These are the features already implemented and planned for the Utrust for WooCommerce plugin:
 
 - [x] Create Order and redirect to Utrust payment widget.
 - [x] Receive and handle webhook for received payment.
