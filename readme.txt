@@ -113,6 +113,16 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.3 = 
+
+- Update readme
+
+= 1.0.2 =
+
+- Update compatibility to WooCommerce 4.2
+- Update readme.txt
+- Test release flow
+
 = 1.0.1 =
 
 * Update compatibility to WooCommerce 4.1.1
