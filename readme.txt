@@ -19,7 +19,7 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 * No need to understand the world of cryptocurrencies, it’s business as usual
 * Supports all crypto wallets that can scan a QR code address or input the address manually
 * No volatility risk
-* Prices displayed in your local currency (supports EUR, USD, GBP)
+* Prices displayed in your customer's local currency
 * Monthly settlements via Bank transfer (EUR, USD, GBP)
 * No chargebacks
 * View payments and issue refunds in Utrust Merchant Dashboard
