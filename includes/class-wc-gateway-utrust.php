@@ -33,8 +33,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
         // Customer Emails
         add_action('woocommerce_email_before_order_table', array($this, 'email_instructions'), 10, 3);
-
-        $this->order_button_text = __('Continue to payment', 'woocommerce-utrust');
     }
 
     /**
