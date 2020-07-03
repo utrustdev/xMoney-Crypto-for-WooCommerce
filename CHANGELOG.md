@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.5 =
+
+- Update assets
+
 = 1.0.4 =
 
 - Remove forcing string Place Order on button
