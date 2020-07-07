@@ -14,6 +14,7 @@ Find out more about Utrust at [utrust.com](https://utrust.com).
 - Utrust Merchant account
 - Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
 - `SKU`s in all the products
+– Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 ## Install and Update
 

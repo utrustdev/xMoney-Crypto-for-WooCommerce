@@ -34,6 +34,7 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 - Utrust Merchant account
 - Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
 - `SKU`s in all the products
+– Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 == Setup ==
 
