@@ -11,7 +11,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
     public function __construct()
     {
         $this->id = 'utrust_gateway';
-        $this->supports('products');
+        $this->supports = array('products');
 
         $this->icon = apply_filters('woocommerce_offline_icon', '');
         $this->has_fields = false;

@@ -14,7 +14,7 @@ Find out more about Utrust at [utrust.com](https://utrust.com).
 - Utrust Merchant account
 - Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
 - `SKU`s in all the products
-– Products must be Purchases (payment method won't be displayed for Subscriptions)
+- Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 ## Install and Update
 
@@ -60,6 +60,8 @@ You can always check our [releases page](https://github.com/utrustdev/utrust-for
 ### Known conflicts with other Plugins
 
 Some plugins that may create problems with the WooCommerce API:
+
+- [Subscriptions](https://woocommerce.com/products/woocommerce-subscriptions/) – Utrust plugin doesn't support yet automatic subscriptions, so the payment method won't be displayed when there is a Subscription on the cart.
 
 - [WPML](https://wpml.org/) – If configurated to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in the `Callback URL` setting (e.g. `https://<your-site>/?lang=en&wc-api=wc_utrust`).
 
