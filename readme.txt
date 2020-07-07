@@ -114,6 +114,10 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.6 =
+
+- Update readme
+
 = 1.0.5 =
 
 - Update assets

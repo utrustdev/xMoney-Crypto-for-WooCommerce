@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.6 =
+
+- Update readme
+
 = 1.0.5 =
 
 - Update assets
