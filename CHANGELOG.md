@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.7 =
+
+- Fix this->support function not overriding
+
 = 1.0.6 =
 
 - Update readme
