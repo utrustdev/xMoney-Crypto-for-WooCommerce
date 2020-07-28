@@ -116,6 +116,10 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.8 = 
+
+- Update Utrust PHP
+
 = 1.0.7 = 
 
 - Fix this->support function not overriding
