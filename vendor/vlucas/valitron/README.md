@@ -10,8 +10,6 @@ Status](https://travis-ci.org/vlucas/valitron.png?branch=master)](https://travis
 [![Latest Stable Version](https://poser.pugx.org/vlucas/valitron/v/stable.png)](https://packagist.org/packages/vlucas/valitron)
 [![Total Downloads](https://poser.pugx.org/vlucas/valitron/downloads.png)](https://packagist.org/packages/vlucas/valitron)
 
-[Get supported vlucas/valitron with the Tidelift Subscription](https://tidelift.com/subscription/pkg/packagist-vlucas-valitron?utm_source=packagist-vlucas-valitron&utm_medium=referral&utm_campaign=readme) 
-
 ## Why Valitron?
 
 Valitron was created out of frustration with other validation libraries
@@ -1326,7 +1324,3 @@ before running the tests:
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create new Pull Request
 8. Pat yourself on the back for being so awesome
-
-## Security Disclosures and Contact Information
-
-To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.

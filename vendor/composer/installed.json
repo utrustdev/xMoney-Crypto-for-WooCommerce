@@ -1,28 +1,28 @@
 [
     {
         "name": "utrust/utrust",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/utrustdev/utrust-php.git",
-            "reference": "2b0ae31be33fd965b189ac0e5ecf20375e8a1060"
+            "reference": "9303e697b87cabe462b1607e0e5029df96c7637f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/utrustdev/utrust-php/zipball/2b0ae31be33fd965b189ac0e5ecf20375e8a1060",
-            "reference": "2b0ae31be33fd965b189ac0e5ecf20375e8a1060",
+            "url": "https://api.github.com/repos/utrustdev/utrust-php/zipball/9303e697b87cabe462b1607e0e5029df96c7637f",
+            "reference": "9303e697b87cabe462b1607e0e5029df96c7637f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0",
-            "vlucas/valitron": "dev-master"
+            "vlucas/valitron": "^1.4.7"
         },
         "require-dev": {
             "phpunit/phpunit": "^8",
             "squizlabs/php_codesniffer": "*"
         },
-        "time": "2019-12-11T19:25:16+00:00",
+        "time": "2020-07-13T15:02:10+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -44,17 +44,17 @@
     },
     {
         "name": "vlucas/valitron",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "v1.4.7",
+        "version_normalized": "1.4.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/valitron.git",
-            "reference": "d0134c33d23eb2c7deb9f65928bc40c9ee04ced2"
+            "reference": "a03072bed1679660200766d134507a30193eaf6d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/valitron/zipball/d0134c33d23eb2c7deb9f65928bc40c9ee04ced2",
-            "reference": "d0134c33d23eb2c7deb9f65928bc40c9ee04ced2",
+            "url": "https://api.github.com/repos/vlucas/valitron/zipball/a03072bed1679660200766d134507a30193eaf6d",
+            "reference": "a03072bed1679660200766d134507a30193eaf6d",
             "shasum": ""
         },
         "require": {
@@ -66,7 +66,7 @@
         "suggest": {
             "ext-mbstring": "It can support the multiple bytes string length."
         },
-        "time": "2019-10-24T14:46:33+00:00",
+        "time": "2019-08-29T19:49:43+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {

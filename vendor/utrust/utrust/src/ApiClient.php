@@ -89,9 +89,10 @@ class ApiClient
      * @param object $order The Order object.
      * @param object $customer The Customer object.
      *
-     * @return string Result data or error message.
+     * @return string|object Response data.
+     * @throws Exception
      */
-    public function createOrder($orderData, $customerData)
+    public function createOrder($orderData, $customerData): ?object
     {
         // Build body
         $body = [
@@ -106,7 +107,7 @@ class ApiClient
 
         $response = $this->post('stores/orders', $body);
 
-        if ($response->errors) {
+        if (isset($response->errors)) {
             throw new \Exception('Exception: Request Error! ' . print_r($response->errors, true));
         } elseif (!isset($response->data->attributes->redirect_url)) {
             throw new \Exception('Exception: Missing redirect_url!');

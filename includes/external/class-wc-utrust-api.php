@@ -10,7 +10,6 @@ if (!defined('ABSPATH')) {
  */
 
 use Utrust\ApiClient;
-use Utrust\Validator;
 
 class WC_UTRUST_API
 {
@@ -102,22 +101,17 @@ class WC_UTRUST_API
             'country' => $order->get_billing_country(),
         );
 
+        // Make the API request
         try {
-            // Validate data
-            $order_is_valid = Validator::order($order_data);
-            $customer_is_valid = Validator::customer($customer_data);
+            // Get API Key and Environment
+            $api_key = $this->api_key;
+            $environment = $this->environment;
 
-            // Make the API request
-            if ($order_is_valid == true && $customer_is_valid == true) {
-                // Get API Key and Environment
-                $api_key = $this->api_key;
-                $environment = $this->environment;
+            // Init Utrust API
+            $utrustApi = new ApiClient($api_key, $environment);
 
-                // Init Utrust API
-                $utrustApi = new ApiClient($api_key, $environment);
+            $response = $utrustApi->createOrder($order_data, $customer_data);
 
-                $response = $utrustApi->createOrder($order_data, $customer_data);
-            }
         } catch (\Exception $e) {
             WC_Utrust_Logger::log('Something went wrong: ' . $e->getMessage());
         }
