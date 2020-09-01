@@ -33,7 +33,6 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 
 - Utrust Merchant account
 - Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
-- `SKU`s in all the products
 - Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 == Setup ==
@@ -58,8 +57,6 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 4. Click on _Utrust_.
 5. Add your `Api Key` and `Webhook Secret` and click _Save_.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API.
-
-   Warning: Make sure all your products have the `SKU` attribute, otherwise the buyer will get an error on checkout.
 
 = Known conflicts with other Plugins =
 
@@ -115,6 +112,10 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+
+= 1.0.9 = 
+
+- Update readme
 
 = 1.0.8 = 
 

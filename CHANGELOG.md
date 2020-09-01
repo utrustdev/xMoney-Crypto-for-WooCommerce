@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.9 =
+
+- Update readme
+
 = 1.0.8 =
 
 - Update Utrust PHP
