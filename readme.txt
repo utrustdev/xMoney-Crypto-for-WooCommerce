@@ -113,6 +113,11 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.10 = 
+
+- Replace deprecated function
+- Bump WC version support
+
 = 1.0.9 = 
 
 - Update readme

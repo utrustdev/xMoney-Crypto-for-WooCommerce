@@ -1,5 +1,10 @@
 **_ Changelog _**
 
+= 1.0.10 =
+
+- Replace deprecated function
+- Bump WC version support
+
 = 1.0.9 =
 
 - Update readme
