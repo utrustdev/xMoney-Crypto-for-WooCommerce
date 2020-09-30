@@ -232,7 +232,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
             $order->update_status('wc-on-hold');
 
             // Reduce stock levels
-            $order->reduce_order_stock();
+            wc_reduce_stock_levels($order_id);
 
             $url_parts = parse_url($redirect_url);
             parse_str($url_parts['query'], $url_array);
