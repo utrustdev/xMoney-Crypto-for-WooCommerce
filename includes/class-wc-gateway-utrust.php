@@ -54,16 +54,16 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'title' => __('Title', 'woocommerce-utrust'),
                 'type' => 'text',
                 'description' => __('This controls the title for the payment method the customer sees during checkout.', 'woocommerce-utrust'),
-                'default' => __('Utrust', 'woocommerce-utrust'),
                 'desc_tip' => true,
+                'default' => __('Utrust', 'woocommerce-utrust'),
             ),
 
             'description' => array(
                 'title' => __('Description', 'woocommerce-utrust'),
                 'type' => 'textarea',
                 'description' => __('Payment method instructions that the customer will see on your checkout.', 'woocommerce-utrust'),
-                'default' => __('You will be redirected to the Utrust Payment widget where you can choose the cryptocurrency and pay.', 'woocommerce-utrust'),
                 'desc_tip' => true,
+                'default' => __('You will be redirected to the Utrust Payment widget where you can choose the cryptocurrency and pay.', 'woocommerce-utrust'),
             ),
 
             'environment' => array(
@@ -71,28 +71,37 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'type' => 'select',
                 'class' => 'wc-enhanced-select',
                 'description' => __('This setting specifies whether you will process live transactions, or whether you will process simulated transactions using the Utrust sandbox.', 'woocommerce-utrust'),
-                'default' => 'live',
                 'desc_tip' => true,
                 'options' => array(
                     'production' => __('Live (Production)', 'woocommerce-utrust'),
                     'sandbox' => __('Test (Sandbox)', 'woocommerce-utrust'),
                 ),
+                'default' => 'live',
             ),
 
             'api_key' => array(
                 'title' => __('API Key', 'woocommerce-utrust'),
                 'type' => 'text',
                 'description' => __('Utrust API Key', 'woocommerce-utrust'),
-                'default' => __('', 'woocommerce-utrust'),
                 'desc_tip' => true,
+                'default' => __('', 'woocommerce-utrust'),
             ),
 
             'webhook_secret' => array(
                 'title' => __('Webhook Secret', 'woocommerce-utrust'),
                 'type' => 'password',
                 'description' => __('Utrust Webhook secret', 'woocommerce-utrust'),
-                'default' => __('', 'woocommerce-utrust'),
                 'desc_tip' => true,
+                'default' => __('', 'woocommerce-utrust'),
+            ),
+
+            'order_created_status' => array(
+                'title' => __('Order Created status', 'woocommerce'),
+                'type' => 'select',
+                'description' => __('Choose your prefered order status when the order is created on Utrust. This happens in the moment that the customer places the order on the checkout.'),
+                'desc_tip' => true,
+                'options' => wc_get_order_statuses(),
+                'default' => 'wc-on-hold',
             ),
 
             'checkout_image' => array(
@@ -101,11 +110,11 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'class' => 'wc-enhanced-select',
                 'description' => __('This image will be displayed in the Checkout page.'),
                 'desc_tip' => true,
-                'default' => 'default',
                 'options' => array(
                     'default' => __('Default (for light websites)', 'woocommerce-utrust'),
                     'white' => __('White (for dark websites)', 'woocommerce-utrust'),
                 ),
+                'default' => 'default',
             ),
 
             'callback_url' => array(
@@ -137,7 +146,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
      */
     public function email_instructions($order, $sent_to_admin, $plain_text = false)
     {
-
         if ($this->instructions && !$sent_to_admin && $this->id === $order->get_payment_method() && $order->has_status('wc-on-hold')) {
             echo wpautop(wptexturize($this->instructions)) . PHP_EOL;
         }
@@ -228,8 +236,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
         if ($redirect_url) {
 
-            // Mark as on-hold (we're awaiting the payment)
-            $order->update_status('wc-on-hold');
+            // Change order status (we're awaiting the payment)
+            $order->update_status($this->order_created_status);
 
             // Reduce stock levels
             wc_reduce_stock_levels($order_id);
