@@ -237,7 +237,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         if ($redirect_url) {
 
             // Change order status (we're awaiting the payment)
-            $order->update_status($this->order_created_status);
+            $order->update_status($this->get_option('order_created_status'));
 
             $url_parts = parse_url($redirect_url);
             parse_str($url_parts['query'], $url_array);
