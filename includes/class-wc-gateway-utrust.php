@@ -239,9 +239,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
             // Change order status (we're awaiting the payment)
             $order->update_status($this->order_created_status);
 
-            // Reduce stock levels
-            wc_reduce_stock_levels($order_id);
-
             $url_parts = parse_url($redirect_url);
             parse_str($url_parts['query'], $url_array);
 
