@@ -101,7 +101,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'description' => __('Choose your prefered order status when the order is created on Utrust. This happens in the moment that the customer places the order on the checkout.'),
                 'desc_tip' => true,
                 'options' => wc_get_order_statuses(),
-                'default' => 'wc-on-hold',
+                'default' => 'wc-pending',
             ),
 
             'checkout_image' => array(
