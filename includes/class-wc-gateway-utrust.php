@@ -63,7 +63,7 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
                 'type' => 'textarea',
                 'description' => __('Payment method instructions that the customer will see on your checkout.', 'woocommerce-utrust'),
                 'desc_tip' => true,
-                'default' => __('You will be redirected to the Utrust Payment widget where you can choose the cryptocurrency and pay.', 'woocommerce-utrust'),
+                'default' => __('You will be redirected to the Utrust payment widget compatible with any major crypto wallets. It will allow you to pay for your purchase in a safe and seamless way using Bitcoin, Ethereum, Tether or a number of other currencies.', 'woocommerce-utrust'),
             ),
 
             'environment' => array(
@@ -246,9 +246,6 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
             if ($utrust_id) {
                 update_post_meta($order_id, '_utrust_order_uuid', $utrust_id);
             }
-
-            // Remove cart
-            WC()->cart->empty_cart();
         }
 
         do_action('wc_payment_gateway_utrust_payment_processed', $order, $this);
