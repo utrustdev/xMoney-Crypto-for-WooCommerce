@@ -113,6 +113,13 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.11 =
+
+- Bump WC version to 5.0.0
+- Improve description on checkout
+- Make Order "pending" status the default status when Order is created
+- Remove the cart deletion 
+
 = 1.0.10 = 
 
 - Replace deprecated function
