@@ -6,7 +6,7 @@ Description: Take cryptocurrency payments in your WooCommerce store using Utrust
 Author: Utrust team
 Version: 1.0.11
 Requires at least: 5.0
-Tested up to: 5.3
+Tested up to: 5.7
 WC requires at least: 3.0
 WC tested up to: 5.0.0
 Text Domain: woocommerce-gateway-utrust
