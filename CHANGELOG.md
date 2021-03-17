@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.12 =
+
+- Bump Wordpress version to 5.7
+
 = 1.0.11 =
 
 - Bump WC version to 5.0.0
