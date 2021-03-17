@@ -1,5 +1,9 @@
 **_ Changelog _**
 
+= 1.0.13 =
+
+- Update readme
+
 = 1.0.12 =
 
 - Bump Wordpress version to 5.7

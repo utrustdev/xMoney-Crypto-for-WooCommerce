@@ -113,6 +113,10 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 1.0.13 =
+
+- Update readme
+
 = 1.0.12 =
 
 - Bump Wordpress version to 5.7
