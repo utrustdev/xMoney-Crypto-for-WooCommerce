@@ -1,8 +1,8 @@
 === Utrust for WooCommerce ===
 Contributors: utrust
 Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, utrust
-Requires at least: 5.1
-Tested up to: 5.4.1
+Requires at least: 5.0
+Tested up to: 5.7
 Requires PHP: 7.2
 Stable tag: 1.0.0
 License: MIT License (MIT)
