@@ -109,7 +109,7 @@ if (!class_exists('UT_Webhooks')) {
                 return;
             } else {
 
-                if ('cancelled' === $order->get_status()) {
+                if ('cancelled' === $order->get_status() || 'processing' === $order->get_status() || 'completed' === $order->get_status()) {
                     return;
                 }
 
