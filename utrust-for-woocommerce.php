@@ -1,0 +1,47 @@
+<?php
+
+/*
+Plugin Name: Utrust for WooCommerce
+Description: Take cryptocurrency payments in your WooCommerce store using Utrust.
+Author: Utrust team
+Version: 1.0.13
+Requires at least: 5.0
+Tested up to: 5.7
+WC requires at least: 3.0
+WC tested up to: 5.0.0
+Text Domain: woocommerce-gateway-utrust
+Author URI: https://utrust.com
+License: GPL-3.0
+ */
+
+if (!defined('ABSPATH')) {
+    exit(); // Exit if accessed directly
+}
+
+// Autoload vendor packages
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+
+// Autoload required files
+require_once dirname(__FILE__) . '/includes/utrust-loader.php';
+
+define('UT_PLUGIN_FILE', __FILE__);
+define('UT_PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('UT_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('UT_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('WC_UTRUST_VERSION', 1.0);
+
+UT_Start::get_instance();
+
+// Adds plugin action links
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_actions_links');
+function add_plugin_actions_links($links)
+{
+
+   $subscriptions = ( class_exists( 'WC_Subscriptions_Order' ) ) ? '_subscriptions' : '';
+        if ( class_exists( 'WC_Subscriptions_Order' ) && ! function_exists( 'wcs_create_renewal_order' ) ) {
+            $subscriptions = '_subscriptions_deprecated';
+        }
+
+    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway'.$subscriptions.'">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
+    return array_merge($settings_link, $links);
+}
