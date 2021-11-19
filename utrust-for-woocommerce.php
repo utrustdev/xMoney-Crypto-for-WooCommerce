@@ -36,6 +36,12 @@ UT_Start::get_instance();
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_actions_links');
 function add_plugin_actions_links($links)
 {
-    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
+
+   $subscriptions = ( class_exists( 'WC_Subscriptions_Order' ) ) ? '_subscriptions' : '';
+        if ( class_exists( 'WC_Subscriptions_Order' ) && ! function_exists( 'wcs_create_renewal_order' ) ) {
+            $subscriptions = '_subscriptions_deprecated';
+        }
+
+    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway'.$subscriptions.'">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
     return array_merge($settings_link, $links);
 }

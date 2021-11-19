@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 use Utrust\Webhook\Event;
-
+require_once( plugin_dir_path( __FILE__ ) . '/action-scheduler/action-scheduler.php' );
 /**
  * Handles Utrust Webhooks
  */
@@ -77,9 +77,12 @@ if (!class_exists('UT_Webhooks')) {
         // Process payment webhook received
         public function process_webhook_payment_received($notification)
         {
+
             $order_id = isset($notification->resource->reference) ? $notification->resource->reference : 0;
 
             $order = wc_get_order($order_id);
+
+            //update_post_meta( $order_id, 'Strasse', $order->get_status());
 
             if (!$order) {
                 WC_Utrust_Logger::log('Could not find order via source ID: ' . $notification->resource->reference);
@@ -87,11 +90,96 @@ if (!class_exists('UT_Webhooks')) {
             } else {
 
                 if ('processing' === $order->get_status() || 'completed' === $order->get_status()) {
+                    
                     return;
                 }
 
                 $order->add_order_note(__('Utrust payment received.', 'hd-woocommerce-utrust'));
+               if ('pending' === $order->get_status()) {
+                    
+                    $order->update_status("wc-completed", 'completed', TRUE);
+					//$order->set_status('wc-completed');
+                    WC()->mailer()->emails['WC_Email_Customer_Completed_Order']->trigger($order_id);
 
+                     $subscriptions_ids = wcs_get_subscriptions_for_order( $order_id, array('order_type' => 'any') );
+                    foreach( $subscriptions_ids as $subscription_id => $subscription_obj ){
+                        if($subscription_obj->order->id == $order_id) break; // Stop the loop
+                    
+                    }
+
+					$b= WC_Subscriptions_Order::get_subscription_period($order);
+
+                    update_post_meta( $order_id, 'subscription_id1', $subscription_id);
+                    update_post_meta( $order_id, 'order_status', $order->get_status());
+                    update_post_meta( $order_id, 'order_id', $order_id);
+
+					
+					if($b=='day'){
+						$timestamp = time() + 60*60*24;
+					}
+					else if($b=='week'){
+						$timestamp = time() + 60*60*24*7;
+					}
+					else if($b=='month'){
+						$timestamp = time() + 60*60*24*30;
+					}
+					else if($b=='year'){
+						$timestamp = time() + 60*60*24*365;
+					}
+					
+					update_post_meta( $order_id, 'timestamp', $timestamp);
+					
+					$array = array(
+						'subscription_id'=>$subscription_id
+					);
+					
+					//as_schedule_recurring_action($timestamp, time(), 'woocommerce_scheduled_subscription_payment',$array);
+					//as_schedule_single_action($timestamp,'woocommerce_scheduled_subscription_payment',$array);
+                    //scheduled_subscription_payment( $amount_to_charge, $order, $product_id );
+                     if(wcs_order_contains_renewal($order_id)) {
+                        $parent_order_id = WC_Subscriptions_Renewal_Order::get_parent_order_id($order_id);
+                        $orderParent = new WC_Order($parent_order_id);
+                        $orderParent->update_status("wc-completed", 'completed', TRUE);
+                        update_post_meta( $order_id, 'parentID', $parent_order_id);
+                        $subscriptions = wcs_get_subscriptions_for_order( $order_id );
+                        foreach( $subscriptions as $subscription_id => $subscription ){
+                            // Change the status of the WC_Subscription object
+                            $subscription->update_status('active');
+                    }
+
+                    $order = wc_get_order($parent_order_id);
+
+                    $bb= WC_Subscriptions_Order::get_subscription_period($order);
+
+                    if($bb=='day'){
+						$timestamp1 = time() + 60*60*24;
+					}
+					else if($bb=='week'){
+						$timestamp1 = time() + 60*60*24*7;
+					}
+					else if($bb=='month'){
+						$timestamp1 = time() + 60*60*24*30;
+					}
+					else if($bb=='year'){
+						$timestamp1 = time() + 60*60*24*365;
+					}
+
+                    update_post_meta( $order_id, 'subscription_id2', $subscription_id);
+                    update_post_meta( $order_id, 'order_status2', $order->get_status());
+                    update_post_meta( $order_id, 'order_id2', $order_id);
+                    update_post_meta( $order_id, 'parent_order_id2', $parent_order_id);
+                    
+                    update_post_meta( $order_id, 'timestamp2', $timestamp1);
+
+
+                    as_schedule_single_action($timestamp1,'woocommerce_scheduled_subscription_payment',$array);
+
+                    } else {
+
+                     as_schedule_single_action($timestamp,'woocommerce_scheduled_subscription_payment',$array);
+
+                    }
+                }
                 $order->payment_complete();
                 $order->save();
             }
@@ -104,12 +192,18 @@ if (!class_exists('UT_Webhooks')) {
 
             $order = wc_get_order($order_id);
 
+            //update_post_meta( $order_id, 'Strasse6', $order->get_status());
+            //update_post_meta( $order_id, 'Strasse7', $notification);
+
             if (!$order) {
                 WC_Utrust_Logger::log('Could not find order via source ID: ' . $notification->resource->reference);
                 return;
             } else {
 
-                if ('cancelled' === $order->get_status() || 'processing' === $order->get_status() || 'completed' === $order->get_status()) {
+                  //update_post_meta( $order_id, 'Strasse7', $order->get_status());
+                  //update_post_meta( $order_id, 'Strasse8', $notification);
+
+                if ('cancelled' === $order->get_status()) {
                     return;
                 }
 
