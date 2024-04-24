@@ -1,4 +1,8 @@
 **_ Changelog _**
+= 1.0.14 =
+
+- Update readme
+- Update to xMoney from Utrust
 
 = 1.0.13 =
 

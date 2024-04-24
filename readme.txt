@@ -1,5 +1,5 @@
 === xMoney for WooCommerce ===
-Contributors: utrust
+Contributors: xmoney
 Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, utrust
 Requires at least: 5.0
 Tested up to: 5.7

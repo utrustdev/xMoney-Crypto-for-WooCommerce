@@ -1,4 +1,4 @@
-![xtrust integrations - Woocommerce](/assets/images/banner_img.svg)
+![xMoney integrations - Woocommerce](https://user-images.githubusercontent.com/1558992/67495646-1e356b00-f673-11e9-8854-1beac877c586.png)
 
 # xMoney Crypto Pay (formerly Utrust)
 
