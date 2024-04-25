@@ -1,6 +1,6 @@
 === xMoney for WooCommerce ===
 Contributors: xmoney
-Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, utrust
+Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, xmoney
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.2
@@ -115,6 +115,7 @@ Our team is eager to welcome new contributors into the mix.
 = 1.0.14 =
 
 - Update readme
+- Update to xMoney from Utrust
 
 = 1.0.13 =
 
