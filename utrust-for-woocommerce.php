@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: Utrust for WooCommerce
-Description: Take cryptocurrency payments in your WooCommerce store using Utrust.
-Author: Utrust team
-Version: 1.0.13
+Plugin Name: xMoney for WooCommerce
+Description: Take cryptocurrency payments in your WooCommerce store using xMoney.
+Author: xMoney team
+Version: 1.0.14
 Requires at least: 5.0
 Tested up to: 5.7
 WC requires at least: 3.0
