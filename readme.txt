@@ -112,10 +112,6 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
-= 1.0.15 =
-
-- Update logo assets
-
 = 1.0.14 =
 
 - Update readme
