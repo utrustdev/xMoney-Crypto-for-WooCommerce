@@ -52,7 +52,7 @@ You can always check our [releases page](https://github.com/utrustdev/xMoney-Cry
 
 ### On the xMoney side
 
-1. Go to the [xMoney Merchant dashboard](https://merchants.utrust.com).
+1. Go to the [xMoney Merchant dashboard](https://merchants.crypto.xmoney.com).
 2. Log in, or sign up if you haven't yet.
 3. On the left sidebar choose _Integrations_.
 4. Select _WooCommerce_ and click the button _Generate Credentials_.

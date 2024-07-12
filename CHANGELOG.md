@@ -1,4 +1,9 @@
 **_ Changelog _**
+= 1.0.16 =
+
+- Update plugin name
+- Update link URLs
+
 = 1.0.15 =
 
 - Update stable version

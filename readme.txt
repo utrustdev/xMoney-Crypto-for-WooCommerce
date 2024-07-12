@@ -1,10 +1,10 @@
-=== xMoney for WooCommerce ===
+=== xMoney Crypto for WooCommerce ===
 Contributors: xmoney
-Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, xmoney
+Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, xmoney
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.2
-Stable tag: 1.0.15
+Stable tag: 1.0.16
 License: MIT License (MIT)
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
@@ -39,8 +39,8 @@ Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.ut
 
 = On the xMoney side =
 
-1. Go to the [xMoney Merchant dashboard](https://merchants.utrust.com).
-2. [Log in](https://merchants.dev-utrust.com/sign-in), or [sign up](https://merchants.utrust.com/onboarding/sign-up) if you haven't yet.
+1. Go to the [xMoney Merchant dashboard](https://merchants.crypto.xmoney.com).
+2. [Log in](https://merchants.dev.crypto.xmoney.com/sign-in), or [sign up](https://merchants.crypto.xmoney.com/onboarding/sign-up) if you haven't yet.
 3. In the sidebar on the left choose _Store_.
 4. Click the button _Generate Credentials_.
 5. You will now see your `Api Key` and `Webhook Secret`, save them somewhere safe temporarily.
@@ -112,6 +112,11 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+= 1.0.16 =
+
+- Update plugin name
+- Update link URLs
+
 = 1.0.15 =
 
 - Update stable version
