@@ -4,9 +4,9 @@ Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, payments, 
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.15
 License: MIT License (MIT)
-License URI: https://github.com/utrustdev/utrust-for-woocommerce/blob/master/LICENSE
+License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
 Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
 
@@ -66,13 +66,13 @@ Some plugins that may create problems with the WooCommerce API:
 
 - [WPML](https://wpml.org/) – If configurated to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in the `Callback URL` setting (e.g. `https://<your-site>/?lang=en&wc-api=wc_utrust`).
 
-Found another conflict missing from this list? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+Found another conflict missing from this list? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 == Frequently Asked Questions ==
 
 Find below a list of the most common questions about the xMoney for WooCommerce plugin.
 
-Don't find what you're looking for in this list? Feel free to reach us [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+Don't find what you're looking for in this list? Feel free to reach us [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 = Does this support both live mode and test mode for testing? =
 
@@ -97,7 +97,7 @@ These are the features already implemented and planned for the xMoney for WooCom
 
 == Support ==
 
-Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new) if you need any help with the Utrust for WooCommerce plugin.
+Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new) if you need any help with the Utrust for WooCommerce plugin.
 
 If you're having specific problems with your account, then please contact support@utrust.com.
 
@@ -105,13 +105,17 @@ In both cases, our team will be happy to help.
 
 == Contribute ==
 
-You can contribute by simply letting us know your suggestions or any problems that you find [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+You can contribute by simply letting us know your suggestions or any problems that you find [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 You can also fork the repository on GitHub and open a pull request for the `master` branch with your missing features and/or bug fixes.
 Please make sure the new code follows the same style and conventions as already written code.
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+= 1.0.15 =
+
+- Update stable version
+
 = 1.0.14 =
 
 - Update readme
@@ -182,6 +186,6 @@ Our team is eager to welcome new contributors into the mix.
 
 == License ==
 
-The xMoney for WooCommerce plugin is maintained by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/utrust-for-woocommerce/blob/master/LICENSE) for further details.
+The xMoney for WooCommerce plugin is maintained by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE) for further details.
 
 &copy; xMoney 2024
