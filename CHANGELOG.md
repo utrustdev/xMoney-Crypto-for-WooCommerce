@@ -1,8 +1,4 @@
 **_ Changelog _**
-= 1.0.15 =
-
-- Update logo assets
-
 = 1.0.14 =
 
 - Update readme
