@@ -1,4 +1,8 @@
 **_ Changelog _**
+= 1.0.17 =
+
+- Update logo assets
+
 = 1.0.16 =
 
 - Update plugin name

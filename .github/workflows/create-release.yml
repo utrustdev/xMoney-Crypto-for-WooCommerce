@@ -27,6 +27,7 @@ jobs:
       - name: WordPress Plugin Deploy to Directory
         uses: 10up/action-wordpress-plugin-deploy@master
         env:
+          SLUG: utrust-for-woocommerce
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
 
