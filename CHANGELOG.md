@@ -1,7 +1,7 @@
 **_ Changelog _**
 = 1.0.15 =
 
-- Update logo assets
+- Update stable version
 
 = 1.0.14 =
 

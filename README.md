@@ -36,7 +36,7 @@ xMoney is the world's digital payments network for all things money. Crypto-enab
 
 ### Installing
 
-1. Download our latest release zip file on the [releases page](https://github.com/utrustdev/utrust-for-woocommerce/releases).
+1. Download our latest release zip file on the [releases page](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/releases).
 2. Go to your Wordpress admin dashboard (it should be something like https://<your-store.com>/wp-admin).
 3. Navigate to the _Plugins_ menu.
 4. Click _Add New_.
@@ -46,7 +46,7 @@ xMoney is the world's digital payments network for all things money. Crypto-enab
 
 ### Updating
 
-You can always check our [releases page](https://github.com/utrustdev/utrust-for-woocommerce/releases) for a new version. You should deactivate the previous version and install and activate the new one. After checking that the new version is working, you can delete the old one.
+You can always check our [releases page](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/releases) for a new version. You should deactivate the previous version and install and activate the new one. After checking that the new version is working, you can delete the old one.
 
 ## SETUP
 
@@ -81,13 +81,13 @@ Some plugins that may create problems with the WooCommerce API:
 
 - [WPML](https://wpml.org/) – If configurated to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in the `Callback URL` setting (e.g. `https://<your-site>/?lang=en&wc-api=wc_utrust`).
 
-Found another conflict missing from this list? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+Found another conflict missing from this list? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 ## Frequently Asked Questions
 
 Find below a list of the most common questions about the xMoney for WooCommerce plugin.
 
-Don't find what you're looking for in this list? Feel free to reach us [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+Don't find what you're looking for in this list? Feel free to reach us [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 ### Does this support both live mode and test mode for testing?
 
@@ -110,11 +110,11 @@ Yes, it does - choosing between live and test mode is driven by the API keys you
 - [ ] Errors handling class to improve errors logs.
 - [ ] Compatibility with WooCommerce earlier than 3.0.
 
-Need something else? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new). Or, better yet, help us by [contributing](#Contribute) with your missing feature :pray:.
+Need something else? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new). Or, better yet, help us by [contributing](#Contribute) with your missing feature :pray:.
 
 ## Support
 
-Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new) if you need any help with the xMoney for WooCommerce plugin.
+Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new) if you need any help with the xMoney for WooCommerce plugin.
 
 If you're having specific problems with your account, then please contact support@utrust.com.
 
@@ -125,7 +125,7 @@ In both cases, our team will be happy to help :purple_heart:.
 This plugin was initially written by a third-party contractor ([HelloDev](https://github.com/hellodevapps)), and is now maintained by the xMoney development team.
 We have now opened it to the world so that the community using this plugin may have the chance of shaping its development.
 
-You can contribute by simply letting us know your suggestions or any problems that you find [by opening an issue on GitHub](https://github.com/utrustdev/utrust-for-woocommerce/issues/new).
+You can contribute by simply letting us know your suggestions or any problems that you find [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
 You can also fork the repository on GitHub and open a pull request for the `master` branch with your missing features and/or bug fixes.
 Please make sure the new code follows the same style and conventions as already written code.
@@ -148,6 +148,6 @@ To publish a new version, simply follow [these instructions](https://github.com/
 
 ## License
 
-The xMoney for WooCommerce plugin is maintained with :purple_heart: by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/utrust-for-woocommerce/blob/master/LICENSE) for further details.
+The xMoney for WooCommerce plugin is maintained with :purple_heart: by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE) for further details.
 
 &copy; xMoney 2024
