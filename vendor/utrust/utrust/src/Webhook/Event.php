@@ -20,6 +20,16 @@ class Event
             throw new \Exception('Event_type is missing on the payload.' . print_r($this->payload, true));
         }
 
+        // Make sure it has amount
+        if (!isset($this->payload->resource->amount)) {
+            throw new \Exception('Amount is missing on the payload.' . print_r($this->payload, true));
+        }
+
+        // Make sure it has currency
+        if (!isset($this->payload->resource->currency)) {
+            throw new \Exception('Currency is missing on the payload.' . print_r($this->payload, true));
+        }
+
         // Make sure it has reference
         if (!isset($this->payload->resource->reference)) {
             throw new \Exception('Reference is missing on the payload.' . print_r($this->payload, true));
@@ -34,6 +44,26 @@ class Event
     public function getEventType()
     {
         return $this->payload->event_type;
+    }
+
+    /**
+     * Gets Order amount
+     *
+     * @return string Order amount.
+     */
+    public function getOrderAmount()
+    {
+        return $this->payload->resource->amount;
+    }
+
+    /**
+     *
+     * Gets Order currency
+     * @return string Order currency.
+     */
+    public function getOrderCurrency()
+    {
+        return $this->payload->resource->currency;
     }
 
     /**

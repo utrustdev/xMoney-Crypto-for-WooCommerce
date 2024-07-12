@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">=5.3.2",
-    "utrust/utrust": "1.0.4"
+    "utrust/utrust": "1.1.0"
   },
   "autoload": {
     "psr-4": {
