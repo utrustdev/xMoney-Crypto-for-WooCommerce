@@ -5,11 +5,13 @@ if (!defined('ABSPATH')) {
 
 class WC_Gateway_UTRUST extends WC_Payment_Gateway
 {
+    public $instructions; // Declare the property
     /**
      * Constructor for the gateway.
      */
     public function __construct()
     {
+        
         $this->id = 'utrust_gateway';
         $this->supports = array('products');
 
@@ -181,7 +183,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         $filename = "";
 
         if ($this->get_option('checkout_image') === 'default') {
-            $filename = 'checkout_image.png';
+           // $filename = 'checkout_image.png';
+            $filename = 'new-checkout-image.png';
         } else {
             $filename = 'checkout_image_white.png';
         }
