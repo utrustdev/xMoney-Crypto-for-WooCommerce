@@ -39,3 +39,11 @@ function add_plugin_actions_links($links)
     $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
     return array_merge($settings_link, $links);
 }
+
+//require_once plugin_dir_path(__FILE__) . 'includes/compatibility-hpos.php';
+
+add_action('before_woocommerce_init', function() {
+    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+    }
+});
