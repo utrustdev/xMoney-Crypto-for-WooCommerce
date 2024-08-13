@@ -12,7 +12,7 @@ Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on yo
 
 == xMoney for WooCommerce ==
 
-Demo Store: [https://woocommerce.store.utrust.com/](https://woocommerce.store.utrust.com/)
+Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
 ==  Key Features ==
 
@@ -115,6 +115,8 @@ Our team is eager to welcome new contributors into the mix.
 = 1.0.17 =
 
 - Update logo assets
+- Update Demo store links
+- Update compatibility with Woocommerce's HPOS(high performance order storage)
 
 = 1.0.16 =
 

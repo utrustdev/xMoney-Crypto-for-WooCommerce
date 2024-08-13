@@ -2,7 +2,7 @@
 
 # xMoney Crypto Pay (formerly Utrust)
 
-**Demo Store:** https://woocommerce.store.utrust.com/
+**Demo Store:** https://demo.crypto.xmoney.com/
 
 Accept Bitcoin, Ethereum, eGLD, UTK Token, and other juicy cryptocurrencies directly on your online store and get settled in the currency of your choice.
 
@@ -14,7 +14,7 @@ xMoney is the world's digital payments network for all things money. Crypto-enab
 
 # XMONEY CRYPTO PAY FOR WOOCOMMERCE
 
-**Demo Store:** https://woocommerce.store.utrust.com/
+**Demo Store:** https://demo.crypto.xmoney.com/
 
 ## Key Features
 - No need to understand the world of cryptocurrencies, it’s business as usual
