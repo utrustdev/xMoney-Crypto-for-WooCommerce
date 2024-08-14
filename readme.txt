@@ -112,14 +112,12 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
-= 1.0.18 =
-
-- Update Demo store links
-- Update compatibility with Woocommerce's HPOS(high performance order storage)
-
 = 1.0.17 =
 
 - Update logo assets
+- Update Demo store links
+- Update compatibility with Woocommerce's HPOS(high performance order storage)
+- Update marketplace version
 
 = 1.0.16 =
 

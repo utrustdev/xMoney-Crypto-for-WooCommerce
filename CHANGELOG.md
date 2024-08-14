@@ -1,12 +1,10 @@
 **_ Changelog _**
-= 1.0.18 =
-
-- Update Demo store links
-- Update compatibility with Woocommerce's HPOS(high performance order storage)
-
 = 1.0.17 =
 
 - Update logo assets
+- Update Demo store links
+- Update compatibility with Woocommerce's HPOS(high performance order storage)
+- Update marketplace version
 
 = 1.0.16 =
 
