@@ -1,10 +1,10 @@
 === xMoney Crypto for WooCommerce ===
 Contributors: xmoney
 Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, xmoney
-Requires at least: 5.0
+Requires at least: 6.6
 Tested up to: 6.8
-Requires PHP: 7.2
-Stable tag: 1.0.18
+Requires PHP: 7.4
+Stable tag: 2.0.1
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
@@ -112,12 +112,17 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
-= 1.0.18 =
+= 2.0.1 =
 
 - Update text domain
 - add missing escape output
 - change parse_url() with wp_parse_url() because of inconsistency
 - fixed inconsistencies in ApiClient
+
+2.0.0
+- Compatible with all latest wordpress version
+- Update compatibility with all latest PHP version
+- Update compatibility with Woocommerce’s HPOS(high performance order storage)
 
 = 1.0.17 =
 
