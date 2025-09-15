@@ -42,13 +42,15 @@ if( !class_exists( 'UT_Start' ) ) {
 		// Include needed files
 		public function includes() {
 
-			require_once( UT_PLUGIN_PATH . '/includes/class-wc-gateway-utrust.php' );
-			require_once( UT_PLUGIN_PATH . '/includes/class-wc-utrust-logger.php' );
-			require_once( UT_PLUGIN_PATH . '/includes/class-wc-utrust-webhooks.php' );
-			require_once( UT_PLUGIN_PATH . '/includes/external/class-wc-utrust-api.php' );
+            if (class_exists('WC_Payment_Gateway')) {
+                require_once(UT_PLUGIN_PATH . '/includes/class-wc-gateway-utrust.php');
+                require_once(UT_PLUGIN_PATH . '/includes/class-wc-utrust-logger.php');
+                require_once(UT_PLUGIN_PATH . '/includes/class-wc-utrust-webhooks.php');
+                require_once(UT_PLUGIN_PATH . '/includes/external/class-wc-utrust-api.php');
 
-			// Handle utrust webhooks
-			new UT_Webhooks();
+                // Handle utrust webhooks
+                new UT_Webhooks();
+            }
 		}
 
 		/**

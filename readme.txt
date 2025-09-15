@@ -2,10 +2,10 @@
 Contributors: xmoney
 Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, xmoney
 Requires at least: 5.0
-Tested up to: 5.7
+Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 1.0.17
-License: MIT License (MIT)
+Stable tag: 1.0.18
+License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
 Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
@@ -32,7 +32,7 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 == Requirements ==
 
 - xMoney Merchant account
-- Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
+- Online store in Wordpress with WooCommerce plugin v9.8 (or greater)
 - Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 == Setup ==
@@ -112,6 +112,13 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+= 1.0.18 =
+
+- Update text domain
+- add missing escape output
+- change parse_url() with wp_parse_url() because of inconsistency
+- fixed inconsistencies in ApiClient
+
 = 1.0.17 =
 
 - Update logo assets
