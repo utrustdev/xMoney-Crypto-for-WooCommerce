@@ -23,7 +23,7 @@ if (!class_exists('UT_Webhooks')) {
         {
             if (('POST' !== $_SERVER['REQUEST_METHOD'])
                 || !isset($_GET['wc-api'])
-                || ('wc_utrust' !== $_GET['wc-api'])
+                || ('wc_utrust' !== sanitize_text_field($_GET['wc-api']))
             ) {
                 return;
             }
@@ -33,7 +33,7 @@ if (!class_exists('UT_Webhooks')) {
             $webhook_secret = isset($utrust_settings['webhook_secret']) ? $utrust_settings['webhook_secret'] : '';
 
             $request_body = file_get_contents('php://input');
-            $request_headers = array_change_key_case($this->get_request_headers(), CASE_UPPER);
+//            $request_headers = array_change_key_case($this->get_request_headers(), CASE_UPPER);
 
             try {
                 $event = new Event($request_body);
@@ -63,6 +63,10 @@ if (!class_exists('UT_Webhooks')) {
         public function process_webhook($request_body)
         {
             $notification = json_decode($request_body);
+            if (json_last_error() !== JSON_ERROR_NONE || empty($notification)) {
+                WC_Utrust_Logger::log('Invalid JSON in webhook: ' . $request_body);
+                return;
+            }
 
             switch ($notification->event_type) {
                 case 'ORDER.PAYMENT.RECEIVED':
@@ -90,7 +94,7 @@ if (!class_exists('UT_Webhooks')) {
                     return;
                 }
 
-                $order->add_order_note(__('Utrust payment received.', 'hd-woocommerce-utrust'));
+                $order->add_order_note(__('Utrust payment received.', 'xMoney-Crypto-for-WooCommerce'));
 
                 $order->payment_complete();
                 $order->save();
@@ -113,9 +117,9 @@ if (!class_exists('UT_Webhooks')) {
                     return;
                 }
 
-                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . $_GET['payment_id'] : '';
+                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . sanitize_text_field($_GET['payment_id']) : '';
 
-                $note = __('Utrust payment cancelled.', 'hd-woocommerce-utrust') . " $payment_id";
+                $note = __('Utrust payment cancelled.', 'xMoney-Crypto-for-WooCommerce') . " $payment_id";
                 $order->set_status('wc-cancelled', $note);
                 $order->save();
             }

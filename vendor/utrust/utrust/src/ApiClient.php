@@ -54,7 +54,7 @@ class ApiClient
         curl_setopt($this->curlHandle, CURLOPT_HTTPHEADER, $headers);
 
         // Set URL
-        curl_setopt($this->curlHandle, CURLOPT_URL, $this->apiUrl . 'stores/orders/');
+        curl_setopt($this->curlHandle, CURLOPT_URL, $this->apiUrl . $endpoint);
 
         // Set body
         curl_setopt($this->curlHandle, CURLOPT_POSTFIELDS, json_encode($body));
@@ -70,14 +70,14 @@ class ApiClient
             $decoded = json_decode($response);
 
             // Check the json decoding and set an error in the result if it failed
-            if (!empty($decoded)) {
+            if (json_last_error() === JSON_ERROR_NONE) {
                 $result = $decoded;
             } else {
-                $result = ['error' => 'Unable to parse JSON result (' . json_last_error() . ')'];
+                $result = (object)['errors' => 'Unable to parse JSON result (' . json_last_error() . ')'];
             }
         } else {
             // Returns the error if the response of the cURL session is false
-            $result = ['errors' => 'cURL error: ' . curl_error($this->curlHandle)];
+            $result = (object)['errors' => 'cURL error: ' . curl_error($this->curlHandle)];
         }
 
         return $result;
@@ -105,7 +105,7 @@ class ApiClient
             ],
         ];
 
-        $response = $this->post('stores/orders', $body);
+        $response = $this->post('stores/orders/', $body);
 
         if (isset($response->errors)) {
             throw new \Exception('Exception: Request Error! ' . print_r($response->errors, true));
