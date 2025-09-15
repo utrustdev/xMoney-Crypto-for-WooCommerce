@@ -1,4 +1,11 @@
 **_ Changelog _**
+
+= 1.0.18 =
+- Update text domain
+- add missing escape output
+- change parse_url() with wp_parse_url() because of inconsistency
+- fixed inconsistencies in ApiClient
+
 = 1.0.17 =
 
 - Update logo assets
