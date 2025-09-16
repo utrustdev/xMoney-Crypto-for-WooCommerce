@@ -22,11 +22,16 @@ fi
 
 echo "Creating release..."
 
-git commit -am $release_name
-git tag $release_name
+git commit -am "$release_name" || true
+git tag "$release_name"
 git push
-git push origin $release_name
+git push origin "$release_name"
+
+# Create GitHub Release
+gh release create "$release_name" \
+  --title "$release_name" \
+  --notes "Release $release_name"
 
 echo "***** DONE *****"
-echo "Check the new release draft and publish it here:"
-echo "https://github.com/utrustdev/utrust-for-woocommerce/releases"
+echo "Release published on GitHub:"
+echo "https://github.com/utrustdev/utrust-for-woocommerce/releases/tag/$release_name"
