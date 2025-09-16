@@ -34,6 +34,16 @@ fi
 
 git push
 
+# Create GitHub release (requires GitHub CLI and auth)
+if command -v gh >/dev/null 2>&1; then
+    gh release create "$release_name" \
+        --title "$release_name" \
+        --notes "Automated release $release_name"
+    echo "GitHub release created successfully."
+else
+    echo "⚠️ GitHub CLI (gh) not installed. Only pushed tag, no release created."
+fi
+
 echo "***** DONE *****"
-echo "Check the new release draft and publish it here:"
+echo "Check the new release here:"
 echo "https://github.com/utrustdev/utrust-for-woocommerce/releases"
