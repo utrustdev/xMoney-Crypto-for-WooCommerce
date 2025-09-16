@@ -31,11 +31,11 @@ else
     git tag "$release_name"
 fi
 
-# Push tag to GitHub (important for gh release create)
-git push origin "$release_name"
+# Push the tag explicitly (disambiguate from branch)
+git push origin "refs/tags/$release_name"
 git push
 
-# Create GitHub release (requires GitHub CLI and auth)
+# Create GitHub release if gh is available
 if command -v gh >/dev/null 2>&1; then
     gh release create "$release_name" \
         --title "$release_name" \
@@ -44,6 +44,7 @@ if command -v gh >/dev/null 2>&1; then
 else
     echo "⚠️ GitHub CLI (gh) not installed. Only pushed tag, no release created."
 fi
+
 
 echo "***** DONE *****"
 echo "Check the new release here:"
