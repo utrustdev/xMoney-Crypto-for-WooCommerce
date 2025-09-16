@@ -31,21 +31,25 @@ if git rev-parse "$release_name" >/dev/null 2>&1; then
     git tag -d "$release_name"
 fi
 
-# Create the new tag
+# Step 1 & 2: Delete local tag if it exists, then create new tag
+if git rev-parse "$release_name" >/dev/null 2>&1; then
+    echo "Tag $release_name exists locally. Overwriting..."
+    git tag -d "$release_name"
+fi
 git tag "$release_name"
 
-# Force push the tag to remote first
+# Step 3: Push tag to remote
 git push origin "refs/tags/$release_name" --force
 
-# Then handle GitHub release
+# Step 4 & 5: Handle GitHub release
 if command -v gh >/dev/null 2>&1; then
-    # Delete existing GitHub release (if any)
+    # Delete existing release if it exists (safe check)
     if gh release view "$release_name" >/dev/null 2>&1; then
-        echo "GitHub release $release_name already exists. Deleting..."
+        echo "GitHub release $release_name exists. Deleting..."
         gh release delete "$release_name" -y
     fi
 
-    # Create new release
+    # Create the new release
     gh release create "$release_name" \
         --title "$release_name" \
         --notes "Automated release $release_name"
