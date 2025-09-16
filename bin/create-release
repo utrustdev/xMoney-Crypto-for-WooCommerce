@@ -22,29 +22,38 @@ fi
 
 echo "Creating release..."
 
+# Commit changes (ignore if no changes)
 git commit -am "$release_name" || true
 
-# Check if tag already exists locally
+# Delete local tag if it exists
 if git rev-parse "$release_name" >/dev/null 2>&1; then
-    echo "Tag $release_name already exists locally."
-else
-    git tag "$release_name"
+    echo "Tag $release_name already exists locally. Overwriting..."
+    git tag -d "$release_name"
 fi
 
-# Push the tag explicitly (disambiguate from branch)
-git push origin "refs/tags/$release_name"
+# Create the new tag
+git tag "$release_name"
+
+# Force push the tag to remote
+git push origin "refs/tags/$release_name" --force
 git push
 
-# Create GitHub release if gh is available
+# Create GitHub release if gh CLI is available
 if command -v gh >/dev/null 2>&1; then
+    # Delete remote GitHub release if it exists
+    if gh release view "$release_name" >/dev/null 2>&1; then
+        echo "GitHub release $release_name already exists. Deleting..."
+        gh release delete "$release_name" -y
+    fi
+
     gh release create "$release_name" \
         --title "$release_name" \
         --notes "Automated release $release_name"
+
     echo "GitHub release created successfully."
 else
     echo "⚠️ GitHub CLI (gh) not installed. Only pushed tag, no release created."
 fi
-
 
 echo "***** DONE *****"
 echo "Check the new release here:"
