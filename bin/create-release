@@ -24,14 +24,15 @@ echo "Creating release..."
 
 git commit -am "$release_name" || true
 
-# Check if tag already exists
+# Check if tag already exists locally
 if git rev-parse "$release_name" >/dev/null 2>&1; then
-    echo "Tag $release_name already exists, skipping tag creation."
+    echo "Tag $release_name already exists locally."
 else
     git tag "$release_name"
-    git push origin "$release_name"
 fi
 
+# Push tag to GitHub (important for gh release create)
+git push origin "$release_name"
 git push
 
 # Create GitHub release (requires GitHub CLI and auth)
