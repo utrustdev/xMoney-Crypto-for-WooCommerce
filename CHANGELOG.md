@@ -1,4 +1,17 @@
 **_ Changelog _**
+
+= 2.0.1 =
+- Update text domain
+- add missing escape output
+- change parse_url() with wp_parse_url() because of inconsistency
+- fixed inconsistencies in ApiClient
+
+= 2.0.0 =
+
+- Compatible with all latest wordpress version
+- Update compatibility with all latest PHP version
+- Update compatibility with Woocommerce’s HPOS(high performance order storage)
+- 
 = 1.0.17 =
 
 - Update logo assets
