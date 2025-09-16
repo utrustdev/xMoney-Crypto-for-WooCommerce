@@ -45,10 +45,11 @@ jobs:
           release_name: ${{ github.ref_name }}
           draft: true
           prerelease: false
+          overwrite: true   # Automatically overwrite if release exists
 
       - name: Upload zip to GitHub release assets
         id: upload_release_asset
-        uses: actions/upload-release-asset@v1.0.1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
