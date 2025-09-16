@@ -4,11 +4,11 @@
 Plugin Name: xMoney for WooCommerce
 Description: Take cryptocurrency payments in your WooCommerce store using xMoney.
 Author: xMoney team
-Version: 1.0.17
-Requires at least: 5.0
-Tested up to: 5.7
+Version: 2.0.0
+Requires at least: 6.6
+Tested up to: 6.7
 WC requires at least: 3.0
-WC tested up to: 5.0.0
+WC tested up to: 9.7.0
 Text Domain: woocommerce-gateway-utrust
 Author URI: https://xmoney.com
 License: GPL-3.0
