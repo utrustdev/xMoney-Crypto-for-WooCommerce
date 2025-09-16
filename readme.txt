@@ -27,8 +27,6 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
 == Screenshots ==
 
-
-
 == Requirements ==
 
 - xMoney Merchant account
