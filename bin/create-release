@@ -1,12 +1,11 @@
 #!/bin/bash -ue
 
 echo "Release name:" "$@"
+
 release_name=$@
 
-# ----------------------------
-# Validate release name
-# ----------------------------
-if !([[ $release_name =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9]+)?$ ]]); then
+# Check if the argument is a valid release name
+if !([[ $release_name =~ ^v[0-9]*\.[0-9]*\.[0-9]*-?[a-z]*[0-9]*$ ]]); then
     echo "Ops! Something is wrong!
     ======== Valid names ========
     v1.0.0
@@ -17,52 +16,36 @@ if !([[ $release_name =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9]+)?$ ]]); then
     1.0.0
     v1.0
     v1.beta10"
+
     exit 1
 fi
 
 echo "Creating release..."
 
-# ----------------------------
-# Commit changes (if any)
-# ----------------------------
 git commit -am "$release_name" || true
 
-# ----------------------------
-# Handle local tag
-# ----------------------------
+# Check if tag already exists locally
 if git rev-parse "$release_name" >/dev/null 2>&1; then
-    echo "Tag $release_name exists locally. Overwriting..."
-    git tag -d "$release_name"
+    echo "Tag $release_name already exists locally."
+else
+    git tag "$release_name"
 fi
-git tag "$release_name"
 
-# ----------------------------
-# Push tag to remote (force)
-# ----------------------------
-git push origin "refs/tags/$release_name" --force
+# Push the tag explicitly (disambiguate from branch)
+git push origin "refs/tags/$release_name"
 git push
 
-# ----------------------------
-# Handle GitHub release
-# ----------------------------
+# Create GitHub release if gh is available
 if command -v gh >/dev/null 2>&1; then
-    # Delete existing release if it exists; ignore error if it doesn't
-    gh release delete "$release_name" -y || true
-
-    # Create a new release
     gh release create "$release_name" \
         --title "$release_name" \
         --notes "Automated release $release_name"
-
     echo "GitHub release created successfully."
 else
     echo "⚠️ GitHub CLI (gh) not installed. Only pushed tag, no release created."
 fi
 
 
-# ----------------------------
-# Done
-# ----------------------------
 echo "***** DONE *****"
 echo "Check the new release here:"
 echo "https://github.com/utrustdev/utrust-for-woocommerce/releases"
