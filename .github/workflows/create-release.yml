@@ -1,59 +1,62 @@
-name: Create a new Release on GitHub and on Wordpress
+name: Create or Update Release on GitHub and WordPress
 
 on:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-      - "v*" # Push events to matching v*, i.e. v1.0.0, v1.2.3-beta4
+      - "v*"  # Trigger on any tag starting with "v"
 
 jobs:
-  build-and-create:
+  release:
     runs-on: ubuntu-latest
-    container:
-      image: composer:1.9
+    # Removed container to avoid Alpine/glibc issues
 
     steps:
+      # 1. Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Fetch all commits and tags
 
-      - name: Display PHP and Composer info
+      # 2. Display PHP & Composer info
+      - name: Display PHP and Composer versions
         run: |
           php -v
           composer --version
 
-      - name: Install project dependencies
+      # 3. Install project dependencies
+      - name: Install dependencies
         run: composer install
 
-      - name: WordPress Plugin Deploy to Directory
+      # 4. WordPress Plugin Deploy via SVN
+      - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@master
         env:
           SLUG: utrust-for-woocommerce
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
 
-      - name: Build zip with the code
+      # 5. Build ZIP archive
+      - name: Build ZIP archive
         run: |
-          zip -r utrust-for-woocommerce * -x .git .github composer.json composer.lock
+          zip -r utrust-for-woocommerce.zip * -x .git .github composer.json composer.lock
 
-      - name: Create Release on GitHub
-        id: create_release
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 6. Create or overwrite GitHub release
+      - name: Create or Update GitHub Release
+        id: gh_release
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
-          draft: true
+          name: ${{ github.ref_name }}
+          draft: false
           prerelease: false
-          overwrite: true   # Automatically overwrite if release exists
-
-      - name: Upload zip to GitHub release assets
-        id: upload_release_asset
-        uses: softprops/action-gh-release@v1
+          overwrite: true   # Overwrite existing release if needed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 7. Upload release ZIP
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v1
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./utrust-for-woocommerce.zip
-          asset_name: utrust-for-woocommerce.zip
-          asset_content_type: application/zip
+          files: utrust-for-woocommerce.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
