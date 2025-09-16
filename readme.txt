@@ -1,11 +1,11 @@
 === xMoney Crypto for WooCommerce ===
 Contributors: xmoney
-Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, xmoney
+Tags: payment gateway, cryptocurrencies, bitcoin, ethereum
 Requires at least: 6.6
-Tested up to: 6.8
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 2.0.1
-License: GPL-3.0
+Stable tag: 1.0.17
+License: MIT License (MIT)
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
 Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
@@ -32,7 +32,7 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 == Requirements ==
 
 - xMoney Merchant account
-- Online store in Wordpress with WooCommerce plugin v9.8 (or greater)
+- Online store in Wordpress with WooCommerce plugin v3.0 (or greater)
 - Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 == Setup ==
@@ -64,7 +64,7 @@ Some plugins that may create problems with the WooCommerce API:
 
 - [Subscriptions](https://woocommerce.com/products/woocommerce-subscriptions/) – xMoney plugin doesn't support yet automatic subscriptions, so the payment method won't be displayed when there is a Subscription on the cart.
 
-- [WPML](https://wpml.org/) – If configured to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in the `Callback URL` setting (e.g. `https://<your-site>/?lang=en&wc-api=wc_utrust`).
+- [WPML](https://wpml.org/) – If configurated to use URL parameters, it redirects the HTTP requests to the WooCommerce API to the site URL with the `lang=en` parameter. One of the solutions is to change WPML to a folder system (`/en/`), another is to add the default language parameter in the `Callback URL` setting (e.g. `https://<your-site>/?lang=en&wc-api=wc_utrust`).
 
 Found another conflict missing from this list? Please let us know [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
@@ -112,17 +112,12 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
-= 2.0.1 =
 
-- Update text domain
-- add missing escape output
-- change parse_url() with wp_parse_url() because of inconsistency
-- fixed inconsistencies in ApiClient
+= 2.0.0 =
 
-2.0.0
 - Compatible with all latest wordpress version
 - Update compatibility with all latest PHP version
-- Update compatibility with Woocommerce’s HPOS(high performance order storage)
+- Update compatibility with Woocommerce's HPOS(high performance order storage)
 
 = 1.0.17 =
 
