@@ -1,15 +1,15 @@
 <?php
 
 /*
-Plugin Name: xMoney for WooCommerce
+Plugin Name: xMoney Crypto for WooCommerce
 Description: Take cryptocurrency payments in your WooCommerce store using xMoney.
 Author: xMoney team
-Version: 2.0.0
+Version: 2.0.1
 Requires at least: 6.6
-Tested up to: 6.7
-WC requires at least: 3.0
-WC tested up to: 9.7.0
-Text Domain: woocommerce-gateway-utrust
+Tested up to: 6.8
+WC requires at least: 5.0.0
+WC tested up to: 10.1.2
+Text Domain: xmoney-crypto-for-woocommerce
 Author URI: https://xmoney.com
 License: GPL-3.0
  */
@@ -36,7 +36,7 @@ UT_Start::get_instance();
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_plugin_actions_links');
 function add_plugin_actions_links($links)
 {
-    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway">' . __('Settings', 'woocommerce-gateway-utrust') . '</a>');
+    $settings_link = array('<a href="admin.php?page=wc-settings&tab=checkout&section=utrust_gateway">' . __('Settings', 'xMoney-Crypto-for-WooCommerce') . '</a>');
     return array_merge($settings_link, $links);
 }
 
