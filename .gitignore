@@ -1,4 +1,12 @@
 .DS_Store
 .idea
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
 vendor/utrust/utrust/.github
