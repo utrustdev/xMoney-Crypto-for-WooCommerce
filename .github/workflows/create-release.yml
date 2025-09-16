@@ -8,14 +8,14 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    # Removed container to avoid Alpine/glibc issues
+    # No container to avoid Alpine/glibc issues
 
     steps:
       # 1. Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Fetch all commits and tags
+          fetch-depth: 0   # Ensure all tags are fetched
 
       # 2. Display PHP & Composer info
       - name: Display PHP and Composer versions
@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: composer install
 
-      # 4. WordPress Plugin Deploy via SVN
+      # 4. Deploy WordPress Plugin via SVN
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@master
         env:
@@ -49,12 +49,12 @@ jobs:
           name: ${{ github.ref_name }}
           draft: false
           prerelease: false
-          overwrite: true   # Overwrite existing release if needed
+          overwrite: true   # Overwrite if release exists
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 7. Upload release ZIP
-      - name: Upload release asset
+      # 7. Upload ZIP release asset
+      - name: Upload release ZIP
         uses: softprops/action-gh-release@v1
         with:
           files: utrust-for-woocommerce.zip
