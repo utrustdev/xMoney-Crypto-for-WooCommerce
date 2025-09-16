@@ -22,11 +22,30 @@ fi
 
 echo "Creating release..."
 
-git commit -am $release_name
-git tag $release_name
+git commit -am "$release_name" || true
+
+# Check if tag already exists locally
+if git rev-parse "$release_name" >/dev/null 2>&1; then
+    echo "Tag $release_name already exists locally."
+else
+    git tag "$release_name"
+fi
+
+# Push the tag explicitly (disambiguate from branch)
+git push origin "refs/tags/$release_name"
 git push
-git push origin $release_name
+
+# Create GitHub release if gh is available
+if command -v gh >/dev/null 2>&1; then
+    gh release create "$release_name" \
+        --title "$release_name" \
+        --notes "Automated release $release_name"
+    echo "GitHub release created successfully."
+else
+    echo "⚠️ GitHub CLI (gh) not installed. Only pushed tag, no release created."
+fi
+
 
 echo "***** DONE *****"
-echo "Check the new release draft and publish it here:"
+echo "Check the new release here:"
 echo "https://github.com/utrustdev/utrust-for-woocommerce/releases"
