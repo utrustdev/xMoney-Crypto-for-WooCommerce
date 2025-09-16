@@ -1,3 +1,28 @@
 .DS_Store
+.DS_Store?
+.idea
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Mockups
+*.psd
+*.pdf
+*.sketch
+*.fig
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+
 
 vendor/utrust/utrust/.github
