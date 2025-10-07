@@ -1,6 +1,12 @@
 **_ Changelog _**
 
+= 2.0.2 =
+
+- Fix plugin check warnings
+- Unregister empty main.css file for SEO purposes
+
 = 2.0.1 =
+
 - Update text domain
 - add missing escape output
 - change parse_url() with wp_parse_url() because of inconsistency

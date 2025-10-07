@@ -30,7 +30,7 @@ if( !class_exists( 'UT_Start' ) ) {
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'payment_gateways' ) );
 
 			// enqueue plugin scripts
-			add_action( 'wp_enqueue_scripts', array( $this, 'payment_frontend_scripts' ) );
+//			add_action( 'wp_enqueue_scripts', array( $this, 'payment_frontend_scripts' ) );
 		}
 
 		public function payment_frontend_scripts() {
