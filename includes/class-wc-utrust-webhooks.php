@@ -21,9 +21,17 @@ if (!class_exists('UT_Webhooks')) {
 
         public function check_for_webhook()
         {
+            if(!isset($_SERVER['REQUEST_METHOD'])){
+                return;
+            }
+
+            // This endpoint handles webhooks from Utrust, not user input — nonce verification not applicable.
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if (('POST' !== $_SERVER['REQUEST_METHOD'])
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 || !isset($_GET['wc-api'])
-                || ('wc_utrust' !== sanitize_text_field($_GET['wc-api']))
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                || ('wc_utrust' !== sanitize_text_field(wp_unslash($_GET['wc-api'])))
             ) {
                 return;
             }
@@ -42,12 +50,12 @@ if (!class_exists('UT_Webhooks')) {
 
                 // Handle signature valid
                 $this->process_webhook($request_body);
-                WC_Utrust_Logger::log('Incoming webhook VALID signature: ' . print_r($request_body, true));
+                WC_Utrust_Logger::log('Incoming webhook VALID signature: ' . $request_body);
                 status_header(200);
                 exit;
             } catch (\Exception $exception) {
                 // Handle signature invalid
-                WC_Utrust_Logger::log('Something went wrong! Exception: ' . $exception->getMessage() . '| Request body: ' . print_r($request_body, true));
+                WC_Utrust_Logger::log('Something went wrong! Exception: ' . $exception->getMessage() . '| Request body: ' .$request_body);
                 status_header(400);
                 exit;
             }
@@ -94,7 +102,7 @@ if (!class_exists('UT_Webhooks')) {
                     return;
                 }
 
-                $order->add_order_note(__('Utrust payment received.', 'xMoney-Crypto-for-WooCommerce'));
+                $order->add_order_note(__('Utrust payment received.', 'utrust-for-woocommerce'));
 
                 $order->payment_complete();
                 $order->save();
@@ -117,9 +125,11 @@ if (!class_exists('UT_Webhooks')) {
                     return;
                 }
 
-                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . sanitize_text_field($_GET['payment_id']) : '';
+                // This endpoint handles webhooks from Utrust, not user input — nonce verification not applicable.
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $payment_id = isset($_GET['payment_id']) ? 'Payment ID ' . sanitize_text_field(wp_unslash($_GET['payment_id'])) : '';
 
-                $note = __('Utrust payment cancelled.', 'xMoney-Crypto-for-WooCommerce') . " $payment_id";
+                $note = __('Utrust payment cancelled.', 'utrust-for-woocommerce') . " $payment_id";
                 $order->set_status('wc-cancelled', $note);
                 $order->save();
             }

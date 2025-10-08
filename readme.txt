@@ -1,10 +1,10 @@
 === xMoney Crypto for WooCommerce ===
 Contributors: xmoney
-Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum, xmoney
+Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
@@ -112,6 +112,12 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+
+= 2.0.2 =
+
+- Fix plugin check warnings
+- Unregister empty main.css file for SEO purposes
+
 = 2.0.1 =
 
 - Update text domain

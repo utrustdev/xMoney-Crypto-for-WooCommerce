@@ -17,8 +17,8 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
         $this->icon = apply_filters('woocommerce_offline_icon', '');
         $this->has_fields = false;
-        $this->method_title = __('Utrust', 'xMoney-Crypto-for-WooCommerce');
-        $this->method_description = __('Allows Cryptocurrencies payments.', 'xMoney-Crypto-for-WooCommerce');
+        $this->method_title = __('Utrust', 'utrust-for-woocommerce');
+        $this->method_description = __('Allows Cryptocurrencies payments.', 'utrust-for-woocommerce');
 
         // Load the settings.
         $this->init_form_fields();
@@ -46,83 +46,83 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
         $this->form_fields = apply_filters('wc_utrust_form_fields', array(
 
             'enabled' => array(
-                'title' => __('Enable/Disable', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Enable/Disable', 'utrust-for-woocommerce'),
                 'type' => 'checkbox',
-                'label' => __('Enable Utrust Payments', 'xMoney-Crypto-for-WooCommerce'),
+                'label' => __('Enable Utrust Payments', 'utrust-for-woocommerce'),
                 'default' => 'yes',
             ),
 
             'title' => array(
-                'title' => __('Title', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Title', 'utrust-for-woocommerce'),
                 'type' => 'text',
-                'description' => __('This controls the title for the payment method the customer sees during checkout.', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('This controls the title for the payment method the customer sees during checkout.', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
-                'default' => __('Utrust', 'xMoney-Crypto-for-WooCommerce'),
+                'default' => __('Utrust', 'utrust-for-woocommerce'),
             ),
 
             'description' => array(
-                'title' => __('Description', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Description', 'utrust-for-woocommerce'),
                 'type' => 'textarea',
-                'description' => __('Payment method instructions that the customer will see on your checkout.', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('Payment method instructions that the customer will see on your checkout.', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
-                'default' => __('You will be redirected to the Utrust payment widget compatible with any major crypto wallets. It will allow you to pay for your purchase in a safe and seamless way using Bitcoin, Ethereum, Tether or a number of other currencies.', 'xMoney-Crypto-for-WooCommerce'),
+                'default' => __('You will be redirected to the Utrust payment widget compatible with any major crypto wallets. It will allow you to pay for your purchase in a safe and seamless way using Bitcoin, Ethereum, Tether or a number of other currencies.', 'utrust-for-woocommerce'),
             ),
 
             'environment' => array(
-                'title' => __('Environment', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Environment', 'utrust-for-woocommerce'),
                 'type' => 'select',
                 'class' => 'wc-enhanced-select',
-                'description' => __('This setting specifies whether you will process live transactions, or whether you will process simulated transactions using the Utrust sandbox.', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('This setting specifies whether you will process live transactions, or whether you will process simulated transactions using the Utrust sandbox.', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
                 'options' => array(
-                    'production' => __('Live (Production)', 'xMoney-Crypto-for-WooCommerce'),
-                    'sandbox' => __('Test (Sandbox)', 'xMoney-Crypto-for-WooCommerce'),
+                    'production' => __('Live (Production)', 'utrust-for-woocommerce'),
+                    'sandbox' => __('Test (Sandbox)', 'utrust-for-woocommerce'),
                 ),
                 'default' => 'production',
             ),
 
             'api_key' => array(
-                'title' => __('API Key', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('API Key', 'utrust-for-woocommerce'),
                 'type' => 'text',
-                'description' => __('Utrust API Key', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('Utrust API Key', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
                 'default' => '',
             ),
 
             'webhook_secret' => array(
-                'title' => __('Webhook Secret', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Webhook Secret', 'utrust-for-woocommerce'),
                 'type' => 'password',
-                'description' => __('Utrust Webhook secret', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('Utrust Webhook secret', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
                 'default' => '',
             ),
 
             'order_created_status' => array(
-                'title' => __('Order Created status', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Order Created status', 'utrust-for-woocommerce'),
                 'type' => 'select',
-                'description' => __('Choose your prefered order status when the order is created on Utrust. This happens in the moment that the customer places the order on the checkout.', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('Choose your prefered order status when the order is created on Utrust. This happens in the moment that the customer places the order on the checkout.', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
                 'options' => wc_get_order_statuses(),
                 'default' => 'wc-pending',
             ),
 
             'checkout_image' => array(
-                'title' => __('Checkout Image', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Checkout Image', 'utrust-for-woocommerce'),
                 'type' => 'select',
                 'class' => 'wc-enhanced-select',
-                'description' => __('This image will be displayed in the Checkout page.', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('This image will be displayed in the Checkout page.', 'utrust-for-woocommerce'),
                 'desc_tip' => true,
                 'options' => array(
-                    'default' => __('Default (for light websites)', 'xMoney-Crypto-for-WooCommerce'),
-                    'white' => __('White (for dark websites)', 'xMoney-Crypto-for-WooCommerce'),
+                    'default' => __('Default (for light websites)', 'utrust-for-woocommerce'),
+                    'white' => __('White (for dark websites)', 'utrust-for-woocommerce'),
                 ),
                 'default' => 'default',
             ),
 
             'callback_url' => array(
-                'title' => __('Callback URL', 'xMoney-Crypto-for-WooCommerce'),
+                'title' => __('Callback URL', 'utrust-for-woocommerce'),
                 'type' => 'text',
-                'description' => __('The default callback_url is /?wc-api=wc_utrust<br />If you are using <strong>WPML plugin</strong>, you also need to pass the lang parameter. E.g.:<br />/?lang=en&wc-api=wc_utrust', 'xMoney-Crypto-for-WooCommerce'),
+                'description' => __('The default callback_url is /?wc-api=wc_utrust<br />If you are using <strong>WPML plugin</strong>, you also need to pass the lang parameter. E.g.:<br />/?lang=en&wc-api=wc_utrust', 'utrust-for-woocommerce'),
                 'default' => get_site_url() . '/?wc-api=wc_utrust',
             ),
         ));
