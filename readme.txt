@@ -4,7 +4,7 @@ Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.2
+Stable tag: 2.1.0
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
@@ -113,6 +113,11 @@ Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
 
+= 2.1.0 =
+
+- Add block support
+- Update compatibility with Woocommerce’s HPOS (high performance order storage)
+
 = 2.0.2 =
 
 - Fix plugin check warnings
@@ -125,7 +130,7 @@ Our team is eager to welcome new contributors into the mix.
 - change parse_url() with wp_parse_url() because of inconsistency
 - fixed inconsistencies in ApiClient
 
-2.0.0
+= 2.0.0 =
 - Compatible with all latest wordpress version
 - Update compatibility with all latest PHP version
 - Update compatibility with Woocommerce’s HPOS(high performance order storage)

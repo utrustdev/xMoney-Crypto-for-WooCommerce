@@ -1,5 +1,10 @@
 **_ Changelog _**
 
+= 2.1.0 =
+
+- Add block support
+- Update compatibility with Woocommerce’s HPOS (high performance order storage)
+
 = 2.0.2 =
 
 - Fix plugin check warnings

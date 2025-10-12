@@ -61,7 +61,7 @@ if( !class_exists( 'UT_Start' ) ) {
 		 * @return array Payment methods
 		 */
 		public function payment_gateways( $methods ) {
-			$methods[] = 'WC_Gateway_Utrust';
+            $methods[] = 'WC_Gateway_UTRUST';
 
 			return $methods;
 		}
