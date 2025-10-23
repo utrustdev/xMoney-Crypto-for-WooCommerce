@@ -247,7 +247,9 @@ class WC_Gateway_UTRUST extends WC_Payment_Gateway
 
             $utrust_id = isset($url_array['uuid']) ? $url_array['uuid'] : '';
             if ($utrust_id) {
-                update_post_meta($order_id, '_utrust_order_uuid', $utrust_id);
+                $order = wc_get_order($order_id);
+                $order->update_meta_data('_utrust_order_uuid', $utrust_id);
+                $order->save();
             }
         }
 
