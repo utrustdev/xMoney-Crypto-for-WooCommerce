@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6d4f6f5d15df434fff5fb97f1c24d7b",
+    "content-hash": "80f108e3720bf3618089d110b3682dc4",
     "packages": [
         {
             "name": "utrust/utrust",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/utrustdev/utrust-php.git",
-                "reference": "9303e697b87cabe462b1607e0e5029df96c7637f"
+                "reference": "8a64390ec1a5486aeee69cd8b3ee2bb691dec3f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/utrustdev/utrust-php/zipball/9303e697b87cabe462b1607e0e5029df96c7637f",
-                "reference": "9303e697b87cabe462b1607e0e5029df96c7637f",
+                "url": "https://api.github.com/repos/utrustdev/utrust-php/zipball/8a64390ec1a5486aeee69cd8b3ee2bb691dec3f1",
+                "reference": "8a64390ec1a5486aeee69cd8b3ee2bb691dec3f1",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,11 @@
                 }
             ],
             "description": "Utrust API library",
-            "time": "2020-07-13T15:02:10+00:00"
+            "support": {
+                "issues": "https://github.com/utrustdev/utrust-php/issues",
+                "source": "https://github.com/utrustdev/utrust-php/tree/v1.1.0"
+            },
+            "time": "2023-09-19T09:33:12+00:00"
         },
         {
             "name": "vlucas/valitron",
@@ -106,5 +110,6 @@
     "platform": {
         "php": ">=5.3.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

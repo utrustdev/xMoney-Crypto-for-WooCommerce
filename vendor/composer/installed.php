@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '7441ac8e4ae99b26ee57212bae660e38209fd231',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '7441ac8e4ae99b26ee57212bae660e38209fd231',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'utrust/utrust' => array(
+            'pretty_version' => 'v1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '8a64390ec1a5486aeee69cd8b3ee2bb691dec3f1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../utrust/utrust',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vlucas/valitron' => array(
+            'pretty_version' => 'v1.4.7',
+            'version' => '1.4.7.0',
+            'reference' => 'a03072bed1679660200766d134507a30193eaf6d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../vlucas/valitron',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
