@@ -116,7 +116,7 @@ Need something else? Please let us know [by opening an issue on GitHub](https://
 
 Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new) if you need any help with the xMoney for WooCommerce plugin.
 
-If you're having specific problems with your account, then please contact support@utrust.com.
+If you're having specific problems with your account, then please contact support@xmoney.com.
 
 In both cases, our team will be happy to help :purple_heart:.
 
@@ -143,11 +143,18 @@ Check the xMoney logs in the Admin Dashboard, in _WooCommerce > Status > Logs_, 
 ## Publishing
 
 For now only members of the xMoney development team can publish new versions of the xMoney for WooCommerce plugin.
+Publishing goes through the GitHub workflow `.github/workflows/create-release.yml`, which commits to the plugin's WordPress.org SVN repository (`utrust-for-woocommerce`).
 
-To publish a new version, simply follow [these instructions](https://github.com/utrustdev/plugin-woocommerce/wiki/Publishing).
+1. On a branch named `release/x.y.z`, set the new version in the `Version:` header of `xmoney-crypto-for-woocommerce.php` and in `WC_UTRUST_VERSION`, set `Stable tag: x.y.z` in `readme.txt`, and add the changes to the changelog in `readme.txt` and `CHANGELOG.md`.
+2. Push the branch. The workflow runs a dry run: it builds the plugin as WordPress.org would receive it and prints the SVN changes without committing. Check that nothing under `vendor/` or `includes/` is deleted.
+3. Open a pull request and merge it into `master`.
+4. Tag the merge commit `vx.y.z` (for example `v2.1.4`, never `v.2.1.4`) and push the tag. The workflow publishes that version to WordPress.org and creates the GitHub release with the zip.
+
+`vendor/` is committed and must ship: the plugin loads `vendor/autoload.php`. Never add it to `.distignore`.
+Page images (icon, banners, screenshots) live in `.wordpress-org/`; the deploy mirrors that folder onto the SVN `assets/` folder, so a file missing there is deleted from the page.
 
 ## License
 
 The xMoney for WooCommerce plugin is maintained with :purple_heart: by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE) for further details.
 
-&copy; xMoney 2024
+&copy; xMoney
