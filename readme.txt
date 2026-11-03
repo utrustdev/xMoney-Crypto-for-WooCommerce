@@ -4,21 +4,27 @@ Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
-Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
+Accept crypto. Get paid directly into your bank account.
 
-== xMoney for WooCommerce ==
+== Description ==
 
 = Notice =
 
-The crypto-asset services offered on this platform are provided by Cifralfabeto, Unipessoal Lda. and are currently suspended.
+**The crypto-asset services offered on this platform are provided by Cifralfabeto, Unipessoal Lda. and are currently suspended.**
 
-Under Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA), crypto-asset services may only be provided in the European Union by entities authorised as Crypto-Asset Service Providers (CASPs). Cifralfabeto has submitted an application for CASP authorisation to Banco de Portugal, the competent authority in Portugal, and the application is currently under assessment.
+**Under Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA), crypto-asset services may only be provided in the European Union by entities authorised as Crypto-Asset Service Providers (CASPs). Cifralfabeto has submitted an application for CASP authorisation to Banco de Portugal, the competent authority in Portugal, and the application is currently under assessment.**
 
-Pending the outcome of this process, Cifralfabeto is not providing crypto-asset services and is not accepting new orders. Services will only resume if and when authorisation is granted, and in accordance with its terms.
+**Pending the outcome of this process, Cifralfabeto is not providing crypto-asset services and is not accepting new orders. Services will only resume if and when authorisation is granted, and in accordance with its terms.**
+
+== xMoney for WooCommerce ==
+
+Accept crypto. Get paid directly into your bank account.
+
+Let your customers pay with Bitcoin, Ethereum, USDC and more, while you receive fiat settlements with processing fees starting at just 1%.
 
 Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
@@ -124,6 +130,11 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+
+= 2.1.5 =
+
+- Show the service notice in bold at the top of the plugin description
+- Update the plugin description
 
 = 2.1.4 =
 

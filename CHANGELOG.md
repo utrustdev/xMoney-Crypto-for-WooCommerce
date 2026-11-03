@@ -1,5 +1,10 @@
 **_ Changelog _**
 
+= 2.1.5 =
+
+- Show the service notice in bold at the top of the plugin description
+- Update the plugin description
+
 = 2.1.4 =
 
 - Add a notice that the crypto-asset services are suspended pending CASP authorisation under MiCA

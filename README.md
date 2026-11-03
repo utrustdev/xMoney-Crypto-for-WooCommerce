@@ -3,15 +3,17 @@
 # xMoney Crypto Pay (formerly Utrust)
 
 > [!IMPORTANT]
-> The crypto-asset services offered on this platform are provided by Cifralfabeto, Unipessoal Lda. and are currently suspended.
+> **The crypto-asset services offered on this platform are provided by Cifralfabeto, Unipessoal Lda. and are currently suspended.**
 >
-> Under Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA), crypto-asset services may only be provided in the European Union by entities authorised as Crypto-Asset Service Providers (CASPs). Cifralfabeto has submitted an application for CASP authorisation to Banco de Portugal, the competent authority in Portugal, and the application is currently under assessment.
+> **Under Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA), crypto-asset services may only be provided in the European Union by entities authorised as Crypto-Asset Service Providers (CASPs). Cifralfabeto has submitted an application for CASP authorisation to Banco de Portugal, the competent authority in Portugal, and the application is currently under assessment.**
 >
-> Pending the outcome of this process, Cifralfabeto is not providing crypto-asset services and is not accepting new orders. Services will only resume if and when authorisation is granted, and in accordance with its terms.
+> **Pending the outcome of this process, Cifralfabeto is not providing crypto-asset services and is not accepting new orders. Services will only resume if and when authorisation is granted, and in accordance with its terms.**
 
 **Demo Store:** https://demo.crypto.xmoney.com/
 
-Accept Bitcoin, Ethereum, eGLD, xMoney Token (XMN), and other juicy cryptocurrencies directly on your online store and get settled in the currency agreed in your merchant contract.
+Accept crypto. Get paid directly into your bank account.
+
+Let your customers pay with Bitcoin, Ethereum, USDC and more, while you receive fiat settlements with processing fees starting at just 1%.
 
 With xMoney Crypto Pay, grow your business by allowing your customers to enjoy a vast portfolio of fiat & crypto currencies when purchasing goods and services, with a zero-fee exchange rate. 
 
