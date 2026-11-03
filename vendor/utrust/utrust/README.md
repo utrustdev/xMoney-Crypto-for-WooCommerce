@@ -24,16 +24,17 @@ Creating a new Order:
 
 ```php
 use Utrust\ApiClient;
-use Utrust\Store\Customer;
-use Utrust\Store\Order;
 
-$order = new Order([...]);
-$customer = new Customer([...]);
+$utrustApi = new ApiClient('API_KEY');
 
-$utrust_api = new ApiClient('API_KEY');
-$response = $utrust_api->createOrder($order, $customer);
+$orderData = [...];
+$customerData = [...];
+
+$response = $utrustApi->createOrder($orderData, $customerData);
 echo $response->attributes->redirect_url;
 ```
+
+Check the full example [here](https://github.com/utrustdev/utrust-php/blob/master/examples/create_simple_order.php).
 
 ### Validations
 
@@ -117,4 +118,4 @@ Utrust PHP is maintained with :purple_heart: by the Utrust development team,
 and is available to the public under the GNU GPLv3 license.
 Please see [LICENSE](https://github.com/utrustdev/utrust-php/blob/master/LICENSE) for further details.
 
-&copy; Utrust 2019
+&copy; Utrust 2020

@@ -7,7 +7,7 @@ use Valitron;
 
 class Validator
 {
-    public function customer($data)
+    public static function customer($data)
     {
         $validator = new Valitron\Validator($data);
 
@@ -40,7 +40,7 @@ class Validator
         }
     }
 
-    public function order($data)
+    public static function order($data)
     {
         $validator = new Valitron\Validator($data);
 
@@ -51,12 +51,7 @@ class Validator
                 ['amount.total'],
                 ['amount.currency'],
                 ['return_urls'],
-                ['return_urls.return_url'],
-                ['line_items'],
-                ['line_items.*.name'],
-                ['line_items.*.price'],
-                ['line_items.*.currency'],
-                ['line_items.*.quantity'],
+                ['return_urls.return_url']
             ],
             'optional' => [
                 ['amount.details'],
@@ -64,6 +59,11 @@ class Validator
                 ['amount.details.tax'],
                 ['amount.details.shipping'],
                 ['amount.details.discount'],
+                ['line_items'],
+                ['line_items.*.name'],
+                ['line_items.*.price'],
+                ['line_items.*.currency'],
+                ['line_items.*.quantity'],
                 ['line_items.*.sku'],
                 ['return_urls.cancel_url'],
                 ['return_urls.callback_url'],
