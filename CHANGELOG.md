@@ -1,5 +1,24 @@
 **_ Changelog _**
 
+= 2.1.4 =
+
+- Add a notice that the crypto-asset services are suspended pending CASP authorisation under MiCA
+- Ship the vendor folder in releases and keep build files out of the plugin
+- Correct the plugin page: sign-in link, setup steps, requirements, FAQ, features, support contact, screenshot captions and banner
+- Tested with WordPress 7.1 and WooCommerce 11.2
+
+= 2.1.3 =
+
+- Fix missing folder js folder
+
+= 2.1.2 =
+
+- Fix missing vendor folder
+
+= 2.1.1 =
+
+- Fix missing folder
+
 = 2.1.0 =
 
 - Add block support

@@ -1,12 +1,22 @@
 # Exclude Git and CI/CD files
 .git
 .gitignore
+.gitattributes
 .github
 
-# Composer and dependencies
-composer.json
-composer.lock
-vendor/
+# Repository-only files at the top level
+/.distignore
+/.wordpress-org
+/bin
+
+# Composer. vendor/ must ship: the plugin loads vendor/autoload.php and
+# the xMoney PHP library. Only its tests, examples and manifests stay out.
+# The top-level composer.json ships: WordPress.org's Plugin Check wants it next to vendor/.
+/vendor/*/*/composer.json
+/vendor/*/*/composer.lock
+/vendor/*/*/tests/
+/vendor/*/*/examples/
+phpunit.xml
 
 # Node / build stuff
 node_modules/

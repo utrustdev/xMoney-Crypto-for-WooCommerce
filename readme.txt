@@ -2,15 +2,23 @@
 Contributors: xmoney
 Tags: payments, payment gateway, cryptocurrencies, bitcoin, ethereum
 Requires at least: 6.6
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.4
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
 Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
 
 == xMoney for WooCommerce ==
+
+= Notice =
+
+The crypto-asset services offered on this platform are provided by Cifralfabeto, Unipessoal Lda. and are currently suspended.
+
+Under Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA), crypto-asset services may only be provided in the European Union by entities authorised as Crypto-Asset Service Providers (CASPs). Cifralfabeto has submitted an application for CASP authorisation to Banco de Portugal, the competent authority in Portugal, and the application is currently under assessment.
+
+Pending the outcome of this process, Cifralfabeto is not providing crypto-asset services and is not accepting new orders. Services will only resume if and when authorisation is granted, and in accordance with its terms.
 
 Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
@@ -20,19 +28,23 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 * Supports all crypto wallets that can scan a QR code address or input the address manually
 * No volatility risk
 * Prices displayed in your customer's local currency
-* Monthly settlements via Bank transfer (EUR, USD, GBP)
+* Settlements by bank transfer in EUR, GBP, USD, RON or CHF, or in selected cryptocurrencies, as set in your merchant contract
 * No chargebacks
 * View payments and issue refunds in xMoney Merchant Dashboard
 * Since a cryptocurrency transaction does not contain any credit card or bank information, there is no need for PCI compliance
 
 == Screenshots ==
 
-
+1. Reach a whole new audience, lower your fees and eliminate chargebacks.
+2. Easily manage orders and refunds.
+3. Sort out your cash settlements seamlessly.
+4. Tap into a whole new market.
+5. Install and start accepting payments in less than 5 minutes.
 
 == Requirements ==
 
 - xMoney Merchant account
-- Online store in Wordpress with WooCommerce plugin v9.8 (or greater)
+- Online store in WordPress 6.6 or later with WooCommerce 9.8 or later
 - Products must be Purchases (payment method won't be displayed for Subscriptions)
 
 == Setup ==
@@ -40,9 +52,9 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 = On the xMoney side =
 
 1. Go to the [xMoney Merchant dashboard](https://merchants.crypto.xmoney.com).
-2. [Log in](https://merchants.dev.crypto.xmoney.com/sign-in), or [sign up](https://merchants.crypto.xmoney.com/onboarding/sign-up) if you haven't yet.
-3. In the sidebar on the left choose _Store_.
-4. Click the button _Generate Credentials_.
+2. [Log in](https://merchants.crypto.xmoney.com/sign-in), or [sign up](https://merchants.crypto.xmoney.com/onboarding/sign-up) if you haven't yet.
+3. Open _Integrations_ › _API Keys_ and select _WooCommerce_ as the integration type.
+4. If no credentials are shown, click _Generate credentials_.
 5. You will now see your `Api Key` and `Webhook Secret`, save them somewhere safe temporarily.
 
    You will only be able to see the `Webhook Secret` once! After refreshing or changing page you will no longer be able to copy it. However, you can always regenerate your credentials as needed.
@@ -53,9 +65,9 @@ Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
 1. Go to your Wordpress admin dashboard.
 2. Navigate to _WooCommerce > Settings_.
-3. Choose the _Payments_ tab (or _Checkout_ in older versions).
-4. Click on _xMoney_.
-5. Add your `Api Key` and `Webhook Secret` and click _Save_.
+3. Choose the _Payments_ tab.
+4. Find the plugin, listed as _Utrust_, and click _Manage_.
+5. Add your `Api Key` and `Webhook Secret` and click _Save changes_.
 6. (Optional) You can change the `Callback URL` if you are not using the default WooCommerce API.
 
 = Known conflicts with other Plugins =
@@ -74,32 +86,32 @@ Find below a list of the most common questions about the xMoney for WooCommerce 
 
 Don't find what you're looking for in this list? Feel free to reach us [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new).
 
-= Does this support both live mode and test mode for testing? =
+= Does this support test mode? =
 
-Yes, it does - choosing between live and test mode is driven by the API keys you use. They are different in both environments. Live API keys won't work for the test environment, and vice-versa.
+Not at the moment. The plugin has a _Test (Sandbox)_ environment setting, but the sandbox it connects to is currently unavailable, so payments in test mode fail. Live and test API keys are different: live keys don't work in test mode, and vice versa.
 
 = What happens if I cancel the Order manually? =
 
-We are working on it. Our API is not ready yet for merchant manual changes. If you need to change the Order status, change it in WooCommerce and then go to our Merchant Dashboard to start a refund.
+The plugin doesn't send manual order changes to xMoney. If you need to change an order's status, change it in WooCommerce, then start any refund from the xMoney Merchant Dashboard.
 
 == Features ==
 
-These are the features already implemented and planned for the xMoney for WooCommerce plugin:
+These are the features of the xMoney for WooCommerce plugin:
 
-- [x] Create Order and redirect to xMoney payment widget.
-- [x] Receive and handle webhook for received payment.
-- [x] Receive and handle webhook for cancelled payment.
-- [x] Save logs on the Wordpress admin dashboard on _WooCommerce > Status > Logs_.
-- [x] Support pre-orders paid upfront (it doesn't support charge on release date).
-- [ ] Sends HTTP request to the xMoney Merchant API when an Order status is updated manually.
-- [ ] Errors handling class to improve errors logs.
-- [ ] Compatibility with WooCommerce earlier than 3.0.
+- Create the order and redirect the customer to the xMoney payment widget.
+- Receive and handle the webhook for a received payment.
+- Receive and handle the webhook for a cancelled payment.
+- Save logs in the WordPress admin dashboard under _WooCommerce > Status > Logs_.
+- Support pre-orders paid upfront (it doesn't support charging on the release date).
+- Work with both the block checkout and the classic checkout.
+
+Not supported: sending manual order status changes to the xMoney Merchant API, and refunds from WooCommerce (issue refunds in the xMoney Merchant Dashboard).
 
 == Support ==
 
-Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new) if you need any help with the Utrust for WooCommerce plugin.
+Feel free to reach [by opening an issue on GitHub](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/issues/new) if you need any help with the xMoney Crypto for WooCommerce plugin.
 
-If you're having specific problems with your account, then please contact support@utrust.com.
+If you're having specific problems with your account, then please contact support@xmoney.com.
 
 In both cases, our team will be happy to help.
 
@@ -112,6 +124,25 @@ Please make sure the new code follows the same style and conventions as already 
 Our team is eager to welcome new contributors into the mix.
 
 == Changelog ==
+
+= 2.1.4 =
+
+- Add a notice that the crypto-asset services are suspended pending CASP authorisation under MiCA
+- Ship the vendor folder in releases and keep build files out of the plugin
+- Correct the plugin page: sign-in link, setup steps, requirements, FAQ, features, support contact, screenshot captions and banner
+- Tested with WordPress 7.1 and WooCommerce 11.2
+
+= 2.1.3 =
+
+- Fix missing folder js folder
+
+= 2.1.2 =
+
+- Fix missing vendor folder
+
+= 2.1.1 =
+
+- Fix missing folder
 
 = 2.1.0 =
 
@@ -222,4 +253,4 @@ Our team is eager to welcome new contributors into the mix.
 
 The xMoney for WooCommerce plugin is maintained by the xMoney development team, and is available to the public under the GNU GPLv3 license. Please see [LICENSE](https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE) for further details.
 
-&copy; xMoney 2024
+&copy; xMoney
