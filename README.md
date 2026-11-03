@@ -11,7 +11,9 @@
 
 **Demo Store:** https://demo.crypto.xmoney.com/
 
-Accept Bitcoin, Ethereum, eGLD, xMoney Token (XMN), and other juicy cryptocurrencies directly on your online store and get settled in the currency agreed in your merchant contract.
+Accept crypto. Get paid directly into your bank account.
+
+Let your customers pay with Bitcoin, Ethereum, USDC and more, while you receive fiat settlements with processing fees starting at just 1%.
 
 With xMoney Crypto Pay, grow your business by allowing your customers to enjoy a vast portfolio of fiat & crypto currencies when purchasing goods and services, with a zero-fee exchange rate. 
 

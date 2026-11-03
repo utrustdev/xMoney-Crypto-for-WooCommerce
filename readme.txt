@@ -8,7 +8,7 @@ Stable tag: 2.1.5
 License: GPL-3.0
 License URI: https://github.com/utrustdev/xMoney-Crypto-for-WooCommerce/blob/master/LICENSE
 
-Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
+Accept crypto. Get paid directly into your bank account.
 
 == Description ==
 
@@ -22,7 +22,9 @@ Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on yo
 
 == xMoney for WooCommerce ==
 
-Accept Bitcoin, Ethereum, xMoney Token and other cryptocurrencies directly on your online store and get settled in fiat for 1% fee.
+Accept crypto. Get paid directly into your bank account.
+
+Let your customers pay with Bitcoin, Ethereum, USDC and more, while you receive fiat settlements with processing fees starting at just 1%.
 
 Demo Store: [https://demo.crypto.xmoney.com/](https://demo.crypto.xmoney.com/)
 
@@ -132,6 +134,7 @@ Our team is eager to welcome new contributors into the mix.
 = 2.1.5 =
 
 - Show the service notice in bold at the top of the plugin description
+- Update the plugin description
 
 = 2.1.4 =
 
